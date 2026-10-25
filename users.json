@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "password": "123456",
+    "fullName": "Quản Trị Viên (Admin)",
+    "role": "admin",
+    "height": 175,
+    "weight": 70
+  },
+  {
+    "id": 2,
+    "username": "user",
+    "password": "123456",
+    "fullName": "Học Viên Tập Luyện",
+    "role": "user",
+    "height": 170,
+    "weight": 65
+  },
+  {
+    "id": 1792392321264,
+    "username": "athlete_test",
+    "password": "123456",
+    "fullName": "Pham Van Test",
+    "role": "user",
+    "height": 178,
+    "weight": 72,
+    "createdAt": "2026-10-19T06:45:21.264Z"
+  },
+  {
+    "id": 1792393643652,
+    "username": "athlete_test2",
+    "password": "123456",
+    "fullName": "Pham Van Test 2",
+    "role": "user",
+    "height": 170,
+    "weight": 65,
+    "createdAt": "2026-10-19T07:07:23.652Z"
+  },
+  {
+    "id": 1792393766126,
+    "username": "ntp113",
+    "password": "ntp113",
+    "fullName": "Nguyen Tan Phat",
+    "role": "user",
+    "height": 163,
+    "weight": 70,
+    "createdAt": "2026-10-19T07:09:26.126Z"
+  }
+]

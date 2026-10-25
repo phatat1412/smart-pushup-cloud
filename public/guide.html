@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hướng Dẫn & Cài Đặt - Smart Push-Up IoT</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0b0f19;
+      color: #f1f5f9;
+    }
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #0284c7);
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    header h1 { margin: 0 0 10px 0; font-size: 26px; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.15);
+      transition: all 0.3s;
+    }
+    nav a:hover, nav a.active {
+      background: #f59e0b;
+      color: #000;
+    }
+    .container {
+      max-width: 850px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+    }
+    .step {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 18px;
+    }
+    .step-num {
+      background: #0284c7;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .step-content { flex: 1; }
+    .step-content h3 { margin: 0 0 5px 0; font-size: 16px; color: #f8fafc; }
+    .step-content p { margin: 0; color: #94a3b8; font-size: 14px; line-height: 1.5; }
+    code {
+      background: #0f172a;
+      color: #f59e0b;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+    }
+    .btn-back {
+      display: inline-block;
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 18px 12px; }
+      header h1 { font-size: 20px; }
+      nav { display: flex; flex-direction: column; gap: 8px; }
+      nav a { margin: 0; padding: 10px 14px; font-size: 13px; }
+      .container { padding: 0 12px; margin: 18px auto; }
+      .card { padding: 16px; border-radius: 14px; }
+      .card h2 { font-size: 17px; }
+      .step { gap: 10px; }
+      .step-num { width: 28px; height: 28px; font-size: 13px; }
+      .step-content h3 { font-size: 15px; }
+      .step-content p { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🏋️ SMART PUSH-UP IoT SYSTEM</h1>
+    <nav>
+      <a href="/">📊 Màn Hình Tập Luyện (Dashboard)</a>
+      <a href="/guide" class="active">📖 Hướng Dẫn & Cài Đặt Thiết Bị</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Cài đặt mạng ESP32 -->
+    <div class="card">
+      <h2>⚙️ Cài Đặt Mạng Cho ESP32 (Áp dụng Bài 10 & 11)</h2>
+      <p style="color: #94a3b8; font-size: 14px;">Thiết bị được trang bị cơ chế tự động cấu hình qua Web (Dual-Mode):</p>
+      
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Kết nối vào Access Point của thiết bị</h3>
+          <p>Mở WiFi trên điện thoại hoặc laptop, tìm và kết nối vào mạng: <code>SmartPushUp_Config</code> (Mật khẩu: <code>12345678</code>).</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Mở trang Web cấu hình trên trình duyệt</h3>
+          <p>Truy cập địa chỉ: <code>http://192.168.4.1</code>. Điền tên WiFi nhà bạn, mật khẩu WiFi và địa chỉ IP Máy chủ MQTT (Ví dụ: <code>192.168.1.194</code>).</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Bấm "Lưu Cấu Hình & Bắt Đầu Tập"</h3>
+          <p>Thiết bị sẽ tự động lưu vào bộ nhớ <strong>EEPROM</strong>, chuyển sang <strong>NORMAL MODE</strong> và kết nối vào WiFi nhà bạn để gửi dữ liệu hít đất.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Cách Reset WiFi khi mang sang nơi khác</h3>
+          <p>Lấy tay nhấn giữ nút <strong>BOOT</strong> trên mạch trong <strong>2 giây</strong> (hoặc gửi lệnh từ Web). Mạch sẽ tự động xóa bộ nhớ và mở lại Access Point để bạn cài WiFi mới.</p>
+        </div>
+      </div>
+    </div>
+
+        <!-- Xuất & Đồng Bộ Dữ Liệu Excel -->
+    <div class="card" style="border-left: 4px solid #10b981;">
+      <h2 style="color: #34d399;">📊 Đồng Bộ & Xuất File Excel Tự Động (Điện Thoại & Máy Tính)</h2>
+      <p style="color: #94a3b8; font-size: 14px;">Toàn bộ dữ liệu các buổi tập (Số lần hít, Chuẩn, Lỗi, Tốc độ, Calo tiêu thụ, Đánh giá) được tự động ghi liên tục về file Excel:</p>
+      
+      <div class="step">
+        <div class="step-num" style="background:#059669;">1</div>
+        <div class="step-content">
+          <h3>Mở trực tiếp trên Máy tính</h3>
+          <p>File Excel luôn được cập nhật liên tục ngay tại thư mục dự án: <code>D:\IOT\Smart Push Up\workout_history.csv</code>. Bạn chỉ cần nhấp đúp chuột để mở trực tiếp bằng Microsoft Excel, Google Sheets hoặc WPS Office.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num" style="background:#059669;">2</div>
+        <div class="step-content">
+          <h3>Tải về Điện thoại (iPhone & Android)</h3>
+          <p>Mở trình duyệt trên điện thoại truy cập <code>http://192.168.1.194:3000/</code> rồi bấm nút <strong style="color:#34d399;">"📊 Xuất File Excel (.csv)"</strong> (hoặc gõ trực tiếp <code>http://192.168.1.194:3000/export-excel</code>). Điện thoại sẽ tải file về và mở trực tiếp trong app Excel / Trang Tính.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num" style="background:#059669;">3</div>
+        <div class="step-content">
+          <h3>Cơ chế ghi tự động & Chuẩn tiếng Việt</h3>
+          <p>Mỗi khi bạn kết thúc một buổi tập (bấm Dừng tập hoặc Reset), hệ thống lập tức tính toán calo, thời lượng, hiệu suất và ghi nối tiếp vào file. File được mã hóa theo chuẩn <strong>UTF-8 BOM</strong> giúp hiển thị tiếng Việt hoàn hảo, không bị lỗi font.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 15px;">
+        <a href="/export-excel" download="SmartPushUp_LichSuTapLuyen.csv" style="display:inline-block; background: linear-gradient(135deg, #059669, #10b981); color:white; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:14px; box-shadow: 0 4px 12px rgba(16,185,129,0.35);">
+          📥 Tải File Excel Hiện Tại Ngay
+        </a>
+      </div>
+    </div>
+
+    <!-- Hướng dẫn kỹ thuật hít đất -->
+    <div class="card">
+      <h2>📏 Chuẩn Kỹ Thuật Đếm Reps</h2>
+      <p style="color: #94a3b8; font-size: 14px;">Hệ thống ứng dụng cảm biến siêu âm HC-SR04 kết hợp thuật toán thích ứng theo chiều cao:</p>
+      <ul>
+        <li style="margin-bottom: 8px;"><strong>Hạ người chuẩn (Going Down):</strong> Ngực cách sàn $\le 20\text{ cm}$ (hoặc theo ngưỡng cá nhân hóa tính từ chiều cao).</li>
+        <li style="margin-bottom: 8px;"><strong>Đẩy thẳng tay (Going Up):</strong> Ngực nâng cao $\ge 35\text{ cm}$ để hoàn thành 1 Rep hợp lệ.</li>
+        <li style="margin-bottom: 8px;"><strong>Cảnh báo Rep lỗi:</strong> Nếu hạ người chưa đủ sâu mà đã đẩy lên, hệ thống sẽ đánh dấu là <em>Rep lỗi</em> và nhắc nhở trên màn hình.</li>
+      </ul>
+
+      <a href="/" class="btn-back">&larr; Quay lại Màn Hình Tập Luyện</a>
+    </div>
+  </div>
+</body>
+</html>
