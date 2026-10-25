@@ -1682,15 +1682,20 @@
 
     const isHttps = window.location.protocol === "https:";
     const HOST = (window.location.hostname && window.location.hostname !== "") ? window.location.hostname : "localhost";
-    let MQTT_URL = "";
-    if (isHttps || window.location.port === "3000") {
-      const wsProto = isHttps ? "wss:" : "ws:";
-      MQTT_URL = wsProto + "//" + window.location.host;
-    } else {
-      MQTT_URL = "ws://" + HOST + ":9001";
+    const isLocalhost = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+
+    // KẾT NỐI CLOUD MQTT BROKER:
+    // Mặc định kết nối trực tiếp EMQX qua WebSocket WSS (Port 8084) bảo mật SSL
+    let MQTT_URL = "wss://broker.emqx.io:8084/mqtt";
+    let MQTT_USERNAME = "";
+    let MQTT_PASSWORD = "";
+
+    // Chỉ khi chạy Localhost port 3000 không phải HTTPS thì mới dùng Aedes cục bộ
+    if (isLocalhost && window.location.port === "3000" && !window.location.protocol.startsWith("https")) {
+      MQTT_URL = "ws://localhost:9001";
+      MQTT_USERNAME = "user1";
+      MQTT_PASSWORD = "123456";
     }
-    const MQTT_USERNAME = "user1";
-    const MQTT_PASSWORD = "123456";
     const SESSION_API = window.location.origin ? (window.location.origin + "/sessions") : ("http://" + HOST + ":3000/sessions");
 
     // THÔNG SỐ CÁ NHÂN HÓA (SINH TRẮC HỌC)
@@ -1745,11 +1750,10 @@
     // ======================================================
     // KHỞI TẠO MQTT CLIENT
     // ======================================================
-    const client = mqtt.connect(MQTT_URL, {
-      username: MQTT_USERNAME,
-      password: MQTT_PASSWORD,
-      reconnectPeriod: 2000
-    });
+    const mqttOpts = { reconnectPeriod: 2000 };
+    if (MQTT_USERNAME && MQTT_USERNAME.length > 0) mqttOpts.username = MQTT_USERNAME;
+    if (MQTT_PASSWORD && MQTT_PASSWORD.length > 0) mqttOpts.password = MQTT_PASSWORD;
+    const client = mqtt.connect(MQTT_URL, mqttOpts);
 
     client.on("connect", () => {
       console.log(">>> [MQTT] Connected to Broker:", MQTT_URL);
