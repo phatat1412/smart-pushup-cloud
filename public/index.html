@@ -1905,12 +1905,10 @@
 
     function handleAuthSuccess(user) {
       currentUser = user;
-      const remember = document.getElementById("rememberMe") ? document.getElementById("rememberMe").checked : true;
-      if (remember) {
-        try {
-          localStorage.setItem("smart_pushup_user", JSON.stringify(user));
-        } catch(e) {}
-      }
+      try {
+        sessionStorage.setItem("smart_pushup_user", JSON.stringify(user));
+        localStorage.removeItem("smart_pushup_user");
+      } catch(e) {}
 
       // Cap nhat thong tin sinh trac hoc
       if (user.height) {
@@ -2124,17 +2122,17 @@
     }
 
     // Tu dong dang nhap neu da tung dang nhap tren thiet bi nay (PWA / Browser)
+    // LUÔN HIỂN THỊ TRANG ĐĂNG NHẬP / ĐĂNG KÝ KHI MỞ LINK HOẶC F5
     window.addEventListener("DOMContentLoaded", () => {
       try {
-        const saved = localStorage.getItem("smart_pushup_user");
-        if (saved) {
-          const u = JSON.parse(saved);
-          if (u && u.username) {
-            console.log(">>> [AUTO LOGIN] Da tim thay tai khoan ghi nho:", u.username);
-            handleAuthSuccess(u);
-          }
-        }
+        localStorage.removeItem("smart_pushup_user");
+        sessionStorage.removeItem("smart_pushup_user");
       } catch(e) {}
+      const loginP = document.getElementById("loginPage");
+      const dashP = document.getElementById("dashboardPage");
+      if (loginP) loginP.style.display = "flex";
+      if (dashP) dashP.style.display = "none";
+      switchAuthTab('login');
     });
 
     // ======================================================
