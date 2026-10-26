@@ -1695,7 +1695,9 @@
       MQTT_USERNAME = "";
       MQTT_PASSWORD = "";
     }
-    const SESSION_API = window.location.origin ? (window.location.origin + "/sessions") : ("http://" + HOST + ":3000/sessions");
+        const isFile = window.location.protocol.startsWith("file");
+    const API_BASE = (isFile || !window.location.origin || window.location.origin === "null") ? ("http://" + HOST + ":3000") : window.location.origin;
+    const SESSION_API = API_BASE + "/sessions";
 
     // THÔNG SỐ CÁ NHÂN HÓA (SINH TRẮC HỌC)
     let userHeight = 170;
@@ -1837,7 +1839,7 @@
       }
 
       try {
-        const res = await fetch("/api/login", {
+        const res = await fetch(API_BASE + "/api/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ username: u, password: p })
@@ -1887,7 +1889,7 @@
       }
 
       try {
-        const res = await fetch("/api/register", {
+        const res = await fetch(API_BASE + "/api/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ username: u, fullName: name || u, password: p, height: h, weight: w })
@@ -1977,7 +1979,7 @@
         if (histTitle) histTitle.innerHTML = "👑 Toàn Bộ Lịch Sử Hệ Thống (Admin Control)";
         if (histSub) histSub.innerHTML = '<span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#38bdf8;"></span> Quản trị viên có toàn quyền xem và xuất lịch sử tập của tất cả học viên';
         if (exportBtn) {
-          exportBtn.href = "/export-excel?role=admin";
+          exportBtn.href = API_BASE + "/export-excel?role=admin";
           exportBtn.download = "SmartPushUp_ToanBoLichSu.csv";
           exportBtn.innerHTML = "📊 Tải Toàn Bộ Excel Hệ Thống (.csv)";
         }
@@ -1996,7 +1998,7 @@
         if (histTitle) histTitle.innerHTML = '📊 Lịch Sử Tập Luyện Của Bạn (<span style="color:#38bdf8;">' + name + '</span>)';
         if (histSub) histSub.innerHTML = '<span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#10b981;"></span> Chỉ hiển thị riêng lịch sử bài tập của tài khoản @' + uname;
         if (exportBtn) {
-          exportBtn.href = '/export-excel?username=' + encodeURIComponent(uname) + '&role=user';
+          exportBtn.href = API_BASE + '/export-excel?username=' + encodeURIComponent(uname) + '&role=user';
           exportBtn.download = 'SmartPushUp_LichSu_' + uname + '.csv';
           exportBtn.innerHTML = '📊 Tải File Excel Của Bạn (.csv)';
         }
@@ -2007,7 +2009,7 @@
 
     async function loadAdminUserList() {
       try {
-        const res = await fetch("/api/users");
+        const res = await fetch(API_BASE + "/api/users");
         if (!res.ok) return;
         const users = await res.json();
         const sel = document.getElementById("adminAthleteSelect");
@@ -2037,14 +2039,14 @@
       if (isAdmin) {
         if (filterUser && filterUser !== "all") {
           confirmMsg = "⚠️ CẢNH BÁO QUẢN TRỊ VIÊN:\n\nBạn đang lọc xem học viên [@ " + filterUser + "].\n\nBạn có muốn XÓA LỊCH SỬ TẬP của riêng học viên [@ " + filterUser + "] không?\n(Bấm Hủy nếu muốn chọn lại 'Xem Toàn Bộ Học Viên' để xóa của tất cả).";
-          deleteUrl = "/sessions?role=admin&filterUser=" + encodeURIComponent(filterUser);
+          deleteUrl = API_BASE + "/sessions?role=admin&filterUser=" + encodeURIComponent(filterUser);
         } else {
           confirmMsg = "⚠️ CẢNH BÁO NGUY HIỂM CHO QUẢN TRỊ VIÊN:\n\nBạn có chắc chắn muốn XÓA / RESET TOÀN BỘ BUỔI TẬP CỦA TẤT CẢ HỌC VIÊN trong hệ thống không?\n\n- Toàn bộ bảng điểm sẽ được xóa sạch về 0.\n- File Excel sẽ được làm mới để bắt đầu đợt tập/thi đấu mới!\n\nHành động này không thể hoàn tác!";
-          deleteUrl = "/sessions?role=admin";
+          deleteUrl = API_BASE + "/sessions?role=admin";
         }
       } else {
         confirmMsg = "Bạn có chắc chắn muốn XÓA LỊCH SỬ TẬP LUYỆN CÁ NHÂN của bạn (@" + currentUser.username + ") không?\n\n(Chỉ xóa dữ liệu của riêng bạn, không ảnh hưởng đến người khác).";
-        deleteUrl = "/sessions?username=" + encodeURIComponent(currentUser.username) + "&role=user";
+        deleteUrl = API_BASE + "/sessions?username=" + encodeURIComponent(currentUser.username) + "&role=user";
       }
 
       if (!confirm(confirmMsg)) return;
@@ -2069,10 +2071,10 @@
       if (exportBtn && sel) {
         const val = sel.value;
         if (val === "all") {
-          exportBtn.href = "/export-excel?role=admin";
+          exportBtn.href = API_BASE + "/export-excel?role=admin";
           exportBtn.download = "SmartPushUp_ToanBoLichSu.csv";
         } else {
-          exportBtn.href = "/export-excel?role=admin&filterUser=" + encodeURIComponent(val);
+          exportBtn.href = API_BASE + "/export-excel?role=admin&filterUser=" + encodeURIComponent(val);
           exportBtn.download = "SmartPushUp_LichSu_" + val + ".csv";
         }
       }
