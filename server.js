@@ -249,7 +249,7 @@ const activeSessions = {};
 // ==============================================================================
 // 1. MQTT CLIENT
 // ==============================================================================
-const MQTT_BROKER = process.env.MQTT_BROKER || "mqtt://broker.emqx.io:1883";
+const MQTT_BROKER = process.env.MQTT_BROKER || "mqtt://broker.hivemq.com:1883";
 const mqttClient = mqtt.connect(MQTT_BROKER, {
   reconnectPeriod: 3000
 });

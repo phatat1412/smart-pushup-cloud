@@ -1684,14 +1684,14 @@
     const HOST = (window.location.hostname && window.location.hostname !== "") ? window.location.hostname : "localhost";
 
     // Kết nối thông minh:
-    // 1. Khi mở qua HTTPS Cloud (Render): kết nối WSS broker.emqx.io:8084
+    // 1. Khi mở qua HTTPS Cloud (Render): kết nối WSS broker.hivemq.com:8884
     // 2. Khi mở qua HTTP cục bộ (localhost hoặc IP mạng trường 172.20.10.4 trên cả điện thoại & laptop): kết nối ws://<HOST>:9001
     let MQTT_URL = "ws://" + HOST + ":9001";
     let MQTT_USERNAME = "user1";
     let MQTT_PASSWORD = "123456";
 
     if (isHttps) {
-      MQTT_URL = "wss://broker.emqx.io:8084/mqtt";
+      MQTT_URL = "wss://broker.hivemq.com:8884/mqtt";
       MQTT_USERNAME = "";
       MQTT_PASSWORD = "";
     }
