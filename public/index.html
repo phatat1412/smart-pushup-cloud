@@ -1774,6 +1774,7 @@
 
     function subscribeCurrentTopics() {
       if (!client.connected) return;
+      client.subscribe("pushup_ntp113/+/live");
       client.subscribe(TOPIC_LIVE, (err) => {
         if (!err) console.log("Subscribed:", TOPIC_LIVE);
       });
@@ -2078,22 +2079,21 @@
     }
 
     function switchDevice(newDev) {
-      if (client.connected && TOPIC_LIVE) {
-        client.unsubscribe(TOPIC_LIVE);
-      }
-
+      const prevDev = currentDeviceId;
       currentDeviceId = newDev;
       TOPIC_LIVE = "pushup_ntp113/" + newDev + "/live";
       TOPIC_COMMAND = "pushup_ntp113/" + newDev + "/command";
 
-      if (client.connected) {
+      if (client && client.connected) {
         client.subscribe(TOPIC_LIVE);
       }
 
       document.getElementById("deviceIdDisplay").innerText = (newDev === "device01") ? "ESP32_01 (Thật)" : "ESP32_02 (Ảo)";
       document.getElementById("chartSub").innerText = "Đang theo dõi: " + ((newDev === "device01") ? "Mạch Thật (HC-SR04)" : "Mạch Ảo (Simulator)");
 
-      resetMetricsDisplay();
+      if (prevDev !== newDev) {
+        resetMetricsDisplay();
+      }
     }
 
     function resetMetricsDisplay() {
@@ -2143,7 +2143,7 @@
         return;
       }
 
-      if (topic === TOPIC_LIVE) {
+      if (topic === TOPIC_LIVE || topic.endsWith("/" + currentDeviceId + "/live") || topic.includes(currentDeviceId + "/live")) {
         try {
           const data = JSON.parse(text);
           updateDashboard(data);
