@@ -1,4 +1,4 @@
-// ==============================================================================
+﻿// ==============================================================================
 // SMART PUSH-UP MULTI-DEVICE API SERVER & WEB SERVER (BÀI 9 + TỰ ĐỘNG XUẤT EXCEL)
 // - ROUTING WEB SERVER CHUẨN MỰC (/, /guide, /about, 404) THEO BÀI 9
 // - PHỤC VỤ FILE TĨNH & REST API /sessions LƯU LỊCH SỬ TẬP
@@ -259,6 +259,8 @@ mqttClient.on("connect", () => {
   console.log(">>> [MQTT] API Server da ket noi Broker thanh cong");
   mqttClient.subscribe("pushup_ntp113/+/command");
   mqttClient.subscribe("pushup_ntp113/+/live");
+  mqttClient.subscribe("pushup/+/command");
+  mqttClient.subscribe("pushup/+/live");
   console.log(">>> [MQTT] Dang lang nghe multi-device: pushup/+/command & pushup/+/live");
   console.log("--------------------------------------------------");
 });

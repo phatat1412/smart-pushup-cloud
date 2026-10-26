@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -1775,6 +1775,7 @@
     function subscribeCurrentTopics() {
       if (!client.connected) return;
       client.subscribe("pushup_ntp113/+/live");
+      client.subscribe("pushup/+/live");
       client.subscribe(TOPIC_LIVE, (err) => {
         if (!err) console.log("Subscribed:", TOPIC_LIVE);
       });
@@ -2086,6 +2087,7 @@
 
       if (client && client.connected) {
         client.subscribe(TOPIC_LIVE);
+        client.subscribe("pushup/" + newDev + "/live");
       }
 
       document.getElementById("deviceIdDisplay").innerText = (newDev === "device01") ? "ESP32_01 (Thật)" : "ESP32_02 (Ảo)";
@@ -2208,6 +2210,7 @@
         console.log("Published dynamic height command:", cmd);
       } else {
         client.publish(TOPIC_COMMAND, "START" + uTag);
+        client.publish("pushup/" + currentDeviceId + "/command", "START" + uTag);
       }
 
       resetTimer();
@@ -2218,6 +2221,7 @@
     function stopTraining() {
       if (client.connected) {
         client.publish(TOPIC_COMMAND, "STOP");
+        client.publish("pushup/" + currentDeviceId + "/command", "STOP");
       }
       stopTimer();
       setText("trainingStatus", "READY");
@@ -2227,6 +2231,7 @@
     function resetTraining() {
       if (client.connected) {
         client.publish(TOPIC_COMMAND, "RESET");
+        client.publish("pushup/" + currentDeviceId + "/command", "RESET");
       }
       stopTimer();
       resetTimer();

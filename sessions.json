@@ -96,18 +96,6 @@
     "fullName": "Học Viên Tập Luyện"
   },
   {
-    "id": 1791786433288,
-    "deviceId": "ESP32_01",
-    "startTime": "2026-10-12T06:27:13.288Z",
-    "endTime": "2026-10-12T06:27:15.028Z",
-    "rep": 0,
-    "validRep": 0,
-    "invalidRep": 0,
-    "cadence": 0,
-    "username": "user",
-    "fullName": "Học Viên Tập Luyện"
-  },
-  {
     "id": 1791786445364,
     "deviceId": "ESP32_01",
     "startTime": "2026-10-12T06:27:25.364Z",
