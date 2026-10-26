@@ -1680,9 +1680,8 @@
     let TOPIC_LIVE = "pushup_ntp113/device01/live";
     let TOPIC_COMMAND = "pushup_ntp113/device01/command";
 
-    const isHttps = window.location.protocol === "https:";
-    const HOST = (window.location.hostname && window.location.hostname !== "") ? window.location.hostname : "localhost";
     const isHttps = window.location.protocol.startsWith("https");
+    const HOST = (window.location.hostname && window.location.hostname !== "") ? window.location.hostname : "localhost";
 
     // Kết nối thông minh:
     // 1. Khi mở qua HTTPS Cloud (Render): kết nối WSS broker.emqx.io:8084
