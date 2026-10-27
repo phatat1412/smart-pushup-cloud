@@ -403,7 +403,7 @@
 
     .profile-inputs-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1.2fr 1.2fr 1.4fr;
+      grid-template-columns: 1fr 1fr 1.1fr 1.2fr 1.2fr 1.4fr;
       gap: 14px;
       align-items: center;
     }
@@ -1557,6 +1557,10 @@
           <label>Cân nặng (kg)</label>
           <input id="userWeight" type="number" value="65" min="30" max="180" oninput="updateFitnessProfile()">
         </div>
+        <div class="p-group">
+          <label>Mục tiêu (kcal)</label>
+          <input id="userCalorieGoal" type="number" value="50" min="5" max="1000" step="5" oninput="updateCalorieGoal(this.value)" title="Nhập mục tiêu Kcal muốn tiêu hao">
+        </div>
         <div class="profile-stat-box">
           <div class="stat-label">Ngưỡng duỗi tay (UP)</div>
           <div class="stat-val"><span id="calcUp">35.7</span> cm</div>
@@ -1661,7 +1665,7 @@
 
             <!-- Nhãn mốc 0 và 50+ kcal ở hai đầu mút vòng cung -->
             <text x="28" y="93" fill="#64748b" font-size="10" font-weight="600" text-anchor="middle">0</text>
-            <text x="152" y="93" fill="#64748b" font-size="10" font-weight="600" text-anchor="middle">50+</text>
+            <text id="gaugeMaxText" x="152" y="93" fill="#64748b" font-size="10" font-weight="600" text-anchor="middle">50+</text>
           </svg>
 
           <!-- Giá trị số hiển thị nổi bật ở tâm vòng cung -->
@@ -1672,7 +1676,7 @@
         </div>
 
         <div class="gauge-footer" style="display:flex; justify-content:space-between; align-items:center; font-size: 11px; color: var(--text-sub); margin-top: 2px;">
-          <span>🎯 Mục tiêu: <b style="color:#f8fafc;">50 kcal</b></span>
+          <span>🎯 Mục tiêu: <b id="gaugeTargetVal" style="color:#f8fafc; cursor:pointer; text-decoration:underline dotted;" title="Nhấn để đổi mục tiêu Kcal" onclick="editCalorieGoal()">50</b> kcal</span>
           <span id="gaugePercent" style="color: #38bdf8; font-weight: 700;">0%</span>
         </div>
       </div>
@@ -1871,6 +1875,12 @@
         document.getElementById("calcUp").innerText = upThreshold;
         document.getElementById("calcDown").innerText = downThreshold;
         document.getElementById("calcKcalPerRep").innerText = kcalPerRep;
+        
+        // Khởi tạo mục tiêu Kcal từ localStorage
+        const savedGoal = parseFloat(localStorage.getItem("pushup_calorie_goal")) || 50;
+        const goalInput = document.getElementById("userCalorieGoal");
+        if (goalInput) goalInput.value = savedGoal;
+        if (typeof updateCalorieGoal === "function") updateCalorieGoal(savedGoal);
       }
     }
     updateFitnessProfile(); // Chạy lần đầu
@@ -2359,11 +2369,56 @@
     
     // ======================================================
         // ======================================================
+    // ======================================================
+    // QUẢN LÝ MỤC TIÊU TIÊU HAO CALORIES (TÙY CHỈNH THEO NGƯỜI DÙNG)
+    // ======================================================
+    let targetCalorieGoal = parseFloat(localStorage.getItem("pushup_calorie_goal")) || 50;
+
+    function updateCalorieGoal(newGoal) {
+      const g = parseFloat(newGoal);
+      if (!isNaN(g) && g > 0) {
+        targetCalorieGoal = g;
+        localStorage.setItem("pushup_calorie_goal", targetCalorieGoal);
+
+        // Đồng bộ ô input nếu giá trị khác
+        const goalInput = document.getElementById("userCalorieGoal");
+        if (goalInput && parseFloat(goalInput.value) !== g) {
+          goalInput.value = g;
+        }
+
+        // Cập nhật số hiển thị ở chân đồ thị Gauge
+        const targetValEl = document.getElementById("gaugeTargetVal");
+        if (targetValEl) targetValEl.innerText = targetCalorieGoal;
+
+        // Cập nhật mốc cực đại trên vòng cung SVG
+        const maxText = document.getElementById("gaugeMaxText");
+        if (maxText) maxText.textContent = targetCalorieGoal + "+";
+
+        // Vẽ lại đồ thị với Calo hiện tại
+        const currCal = parseFloat(document.getElementById("calories")?.innerText) || 0;
+        updateCalorieGauge(currCal);
+      }
+    }
+
+    function editCalorieGoal() {
+      const current = targetCalorieGoal;
+      const input = prompt("Nhập mục tiêu tiêu hao Calo mới (kcal):", current);
+      if (input !== null) {
+        const val = parseFloat(input);
+        if (!isNaN(val) && val > 0) {
+          updateCalorieGoal(val);
+        } else {
+          alert("Vui lòng nhập một số hợp lệ lớn hơn 0!");
+        }
+      }
+    }
+
+    // ======================================================
     // CẬP NHẬT ĐỒ THỊ VÒNG CUNG CALORIES (RADIAL ARC - NO NEEDLE)
     // ======================================================
     function updateCalorieGauge(val) {
       const num = parseFloat(val) || 0;
-      const MAX_CAL = 50.0; // Thang mục tiêu 50 kcal
+      const MAX_CAL = (typeof targetCalorieGoal === "number" && targetCalorieGoal > 0) ? targetCalorieGoal : 50.0;
       const ratio = Math.min(Math.max(num / MAX_CAL, 0), 1);
 
       // Cập nhật vòng cung tiến độ Calo (chu vi bán nguyệt: 194.8)
@@ -2377,33 +2432,39 @@
 
       // Cập nhật % hoàn thành mục tiêu
       const pctEl = document.getElementById("gaugePercent");
+      const pct = Math.round((num / MAX_CAL) * 100);
       if (pctEl) {
-        pctEl.innerText = Math.round((num / MAX_CAL) * 100) + "%";
+        pctEl.innerText = pct + "%";
       }
 
-      // Cập nhật nhãn phân loại cường độ đốt mỡ
+      // Cập nhật nhãn phân loại cường độ đốt mỡ theo % mục tiêu đã đạt
       const tag = document.getElementById("gaugeLevelTag");
       if (tag) {
-        if (num < 10) {
-          tag.innerText = "Khởi động";
-          tag.style.background = "rgba(16, 185, 129, 0.15)";
+        if (pct >= 100) {
+          tag.innerText = "Đạt mục tiêu 🎉";
+          tag.style.background = "rgba(16, 185, 129, 0.25)";
           tag.style.color = "#34d399";
-          tag.style.borderColor = "rgba(16, 185, 129, 0.3)";
-        } else if (num < 25) {
-          tag.innerText = "Đốt mỡ nhẹ";
-          tag.style.background = "rgba(56, 189, 248, 0.15)";
-          tag.style.color = "#38bdf8";
-          tag.style.borderColor = "rgba(56, 189, 248, 0.3)";
-        } else if (num < 40) {
-          tag.innerText = "Đốt mỡ tối ưu";
-          tag.style.background = "rgba(245, 158, 11, 0.15)";
-          tag.style.color = "#fbbf24";
-          tag.style.borderColor = "rgba(245, 158, 11, 0.3)";
-        } else {
+          tag.style.borderColor = "rgba(16, 185, 129, 0.6)";
+        } else if (pct >= 75) {
           tag.innerText = "Cực đại (HIIT)";
           tag.style.background = "rgba(239, 68, 68, 0.15)";
           tag.style.color = "#f87171";
           tag.style.borderColor = "rgba(239, 68, 68, 0.3)";
+        } else if (pct >= 50) {
+          tag.innerText = "Đốt mỡ tối ưu";
+          tag.style.background = "rgba(245, 158, 11, 0.15)";
+          tag.style.color = "#fbbf24";
+          tag.style.borderColor = "rgba(245, 158, 11, 0.3)";
+        } else if (pct >= 20) {
+          tag.innerText = "Đốt mỡ nhẹ";
+          tag.style.background = "rgba(56, 189, 248, 0.15)";
+          tag.style.color = "#38bdf8";
+          tag.style.borderColor = "rgba(56, 189, 248, 0.3)";
+        } else {
+          tag.innerText = "Khởi động";
+          tag.style.background = "rgba(16, 185, 129, 0.15)";
+          tag.style.color = "#34d399";
+          tag.style.borderColor = "rgba(16, 185, 129, 0.3)";
         }
       }
     }
