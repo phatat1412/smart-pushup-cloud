@@ -120,6 +120,136 @@ function getRating(validRep, invalidRep) {
 }
 
 // Sinh nội dung file Excel (CSV có ký tự UTF-8 BOM \uFEFF hiển thị tiếng Việt hoàn hảo)
+
+// ------------------------------------------------------------------------------
+// CHUẨN HÓA VÀ LÀM GIÀU DỮ LIỆU JSON CHI TIẾT (THỂ HIỆN RÕ RÀNG MỌI THÔNG SỐ)
+// ------------------------------------------------------------------------------
+function enrichSession(s, index = 0) {
+  const totalRep = Number(s.rep != null ? s.rep : (Number(s.validRep || 0) + Number(s.invalidRep || 0)));
+  const validRep = Number(s.validRep || 0);
+  const invalidRep = Number(s.invalidRep || 0);
+  const accuracy = (totalRep > 0) ? Number(((validRep / totalRep) * 100).toFixed(1)) : (totalRep === 0 ? 0 : 100);
+  const devId = s.deviceId || "ESP32_01";
+  const isVirtual = (devId === "ESP32_02" || devId.toLowerCase().includes("virtual") || devId.toLowerCase().includes("02"));
+  const devName = isVirtual ? "ESP32 Ảo (Wokwi Simulator)" : "ESP32 Thật (Cảm biến HC-SR04)";
+  const devType = isVirtual ? "Mạch Ảo (Virtual)" : "Mạch Thật (Hardware)";
+  const startIso = s.startTime || "";
+  const endIso = s.endTime || "";
+  const durationStr = calculateDuration(startIso, endIso);
+  const cadenceVal = Number(s.cadence || 0);
+  const calories = Number((validRep * 0.45).toFixed(1));
+  const ratingText = getRating(validRep, invalidRep);
+
+  let feedbackText = "Cần cải thiện độ sâu khi hạ ngực để ghi nhận rep chuẩn.";
+  if (accuracy >= 90 && validRep >= 15) {
+    feedbackText = "Kỹ thuật tuyệt vời! Biên độ chuyển động hoàn hảo, nhịp độ và tư thế đạt chuẩn cao.";
+  } else if (accuracy >= 80 && validRep >= 8) {
+    feedbackText = "Động tác rất tốt! Kiểm soát cơ thể ổn định trong suốt buổi tập.";
+  } else if (accuracy >= 65) {
+    feedbackText = "Đạt yêu cầu thể lực. Chú ý hạ ngực sát cảm biến hơn để tăng số rep chuẩn.";
+  }
+
+  let durationSec = 0;
+  if (startIso && endIso) {
+    const sTime = new Date(startIso).getTime();
+    const eTime = new Date(endIso).getTime();
+    if (!isNaN(sTime) && !isNaN(eTime)) {
+      durationSec = Math.max(0, Math.round((eTime - sTime) / 1000));
+    }
+  }
+
+  const datePart = startIso ? formatDateTimeVN(startIso).split(" ")[0].replace(/-/g, "") : "DATE";
+  const idStr = String(s.id || (Date.now() + index)).slice(-4);
+  const sessionCode = `PUSHUP-${datePart}-${idStr}`;
+
+  return {
+    id: s.id || Date.now(),
+    sessionCode: sessionCode,
+    athlete: {
+      username: s.username || "user",
+      fullName: s.fullName || s.username || "Học Viên Tập Luyện"
+    },
+    device: {
+      deviceId: devId,
+      deviceName: devName,
+      deviceType: devType
+    },
+    time: {
+      startTime: startIso,
+      endTime: endIso,
+      startTimeFormatted: formatDateTimeVN(startIso),
+      endTimeFormatted: formatDateTimeVN(endIso),
+      durationSeconds: durationSec,
+      durationFormatted: durationStr
+    },
+    performance: {
+      totalRep: totalRep,
+      validRep: validRep,
+      invalidRep: invalidRep,
+      accuracyPercent: accuracy,
+      cadenceRpm: Number(cadenceVal.toFixed(1)),
+      caloriesBurnedKcal: calories
+    },
+    evaluation: {
+      rating: ratingText,
+      feedback: feedbackText
+    },
+    // Các trường tương thích ngược (Flat Fields) cho Dashboard & Scripts cũ:
+    rep: totalRep,
+    validRep: validRep,
+    invalidRep: invalidRep,
+    cadence: Number(cadenceVal.toFixed(1)),
+    accuracy: accuracy,
+    deviceId: devId,
+    username: s.username || "user",
+    fullName: s.fullName || s.username || "Học Viên Tập Luyện",
+    startTime: startIso,
+    endTime: endIso,
+    duration: durationStr,
+    calories: calories,
+    rating: ratingText
+  };
+}
+
+function generateDetailedJson(sessions, reqUser = "", isAdmin = false) {
+  const enriched = (sessions || []).map((s, idx) => enrichSession(s, idx));
+
+  let totalReps = 0;
+  let totalValid = 0;
+  let totalInvalid = 0;
+  let totalCalo = 0;
+  let totalCadence = 0;
+
+  enriched.forEach(s => {
+    totalReps += s.performance.totalRep;
+    totalValid += s.performance.validRep;
+    totalInvalid += s.performance.invalidRep;
+    totalCalo += s.performance.caloriesBurnedKcal;
+    totalCadence += s.performance.cadenceRpm;
+  });
+
+  const avgAccuracy = (totalReps > 0) ? Number(((totalValid / totalReps) * 100).toFixed(1)) : 0;
+  const avgCadence = (enriched.length > 0) ? Number((totalCadence / enriched.length).toFixed(1)) : 0;
+
+  return {
+    system: "Smart Push-Up IoT Analytics Platform",
+    version: "2.5.0",
+    description: "Báo cáo chi tiết lịch sử tập luyện hít đất thông minh",
+    exportedAt: formatDateTimeVN(new Date().toISOString()),
+    exportScope: isAdmin ? (reqUser && reqUser !== "all" ? `Học viên @${reqUser}` : "Toàn bộ hệ thống (Admin)") : `Cá nhân học viên @${reqUser || 'user'}`,
+    summary: {
+      totalSessions: enriched.length,
+      totalReps: totalReps,
+      totalValidReps: totalValid,
+      totalInvalidReps: totalInvalid,
+      overallAccuracyPercent: avgAccuracy,
+      totalCaloriesBurnedKcal: Number(totalCalo.toFixed(1)),
+      averageCadenceRpm: avgCadence
+    },
+    sessions: enriched
+  };
+}
+
 function generateExcelCsv(sessions, isAdmin = false) {
   const BOM = "\uFEFF";
   const headers = isAdmin
@@ -237,8 +367,9 @@ function getSessions() {
 
 // Lưu danh sách buổi tập và tự động cập nhật Excel
 function saveSessions(sessions) {
-  fs.writeFileSync(SESSIONS_FILE, JSON.stringify(sessions, null, 2), "utf8");
-  syncExcelFiles(sessions);
+  const enrichedList = (sessions || []).map((s, idx) => enrichSession(s, idx));
+  fs.writeFileSync(SESSIONS_FILE, JSON.stringify(enrichedList, null, 2), "utf8");
+  syncExcelFiles(enrichedList);
 }
 
 // Tự động khởi tạo file Excel ngay khi bật server
@@ -318,18 +449,36 @@ mqttClient.on("message", (topic, message) => {
   }
 
   if (topic.endsWith("/live")) {
-    const sess = activeSessions[devKey];
-    if (sess) {
-      try {
-        const data = JSON.parse(text);
+    let sess = activeSessions[devKey];
+    try {
+      const data = JSON.parse(text);
+
+      // TỰ ĐỘNG PHỤC HỒI BUỔI TẬP: Nếu Wokwi hoặc ESP32 đang tập mà chưa kịp nhận lệnh START
+      if (!sess && (data.status === "TRAINING" || (data.rep && data.rep > 0))) {
+        activeSessions[devKey] = {
+          id: Date.now(),
+          deviceId: devIdFormatted,
+          username: "user",
+          fullName: (devKey === "device02") ? "Mạch Ảo Wokwi" : "Học Viên Tập Luyện",
+          startTime: new Date().toISOString(),
+          endTime: null,
+          rep: data.rep || 0,
+          validRep: data.validRep || 0,
+          invalidRep: data.invalidRep || 0,
+          cadence: Number(data.cadence || 0)
+        };
+        sess = activeSessions[devKey];
+        console.log(`>>> [AUTO-SESSION] Tự động kích hoạt phiên tập cho [${devKey} - ${devIdFormatted}] khi nhận tín hiệu live!`);
+      }
+
+      if (sess) {
         sess.rep = data.rep ?? sess.rep;
         sess.validRep = data.validRep ?? sess.validRep;
         sess.invalidRep = data.invalidRep ?? sess.invalidRep;
         sess.cadence = Number(data.cadence ?? sess.cadence);
-        // accuracy removed
         if (data.deviceId) sess.deviceId = data.deviceId;
-      } catch (e) {}
-    }
+      }
+    } catch (e) {}
   }
 });
 
@@ -587,6 +736,45 @@ const server = http.createServer((req, res) => {
     });
     res.end(csvContent);
     console.log(`>>> [EXCEL DOWNLOAD] Da xuat file ${exportFileName} (${sessions.length} buoi tap) cho [${reqUser || 'admin'}]`);
+    return;
+  }
+
+  
+  // ROUTE 3.5: XUẤT / TẢI FILE JSON CHI TIẾT ĐẦY ĐỦ THÔNG SỐ (THỂ HIỆN RÕ RÀNG MỌI THÔNG TIN)
+  if (req.method === "GET" && (url.pathname === "/export-json" || url.pathname === "/sessions.json")) {
+    const reqUser = (url.searchParams.get("username") || "").trim().toLowerCase();
+    const reqRole = (url.searchParams.get("role") || "").trim().toLowerCase();
+    const filterUser = (url.searchParams.get("filterUser") || "").trim().toLowerCase();
+    let sessions = getSessions();
+    const isAdmin = (reqRole === "admin");
+    let exportFileName = "SmartPushUp_ToanBoLichSu.json";
+    let targetUser = reqUser;
+
+    if (!isAdmin && reqUser) {
+      sessions = sessions.filter(s => {
+        const u = (s.username || "user").toLowerCase();
+        return u === reqUser || (reqUser === "user" && !s.username);
+      });
+      exportFileName = `SmartPushUp_LichSu_${reqUser}.json`;
+    } else if (isAdmin && filterUser && filterUser !== "all") {
+      sessions = sessions.filter(s => {
+        const u = (s.username || "user").toLowerCase();
+        return u === filterUser;
+      });
+      exportFileName = `SmartPushUp_LichSu_${filterUser}.json`;
+      targetUser = filterUser;
+    }
+
+    const jsonData = generateDetailedJson(sessions, targetUser, isAdmin);
+    const jsonStr = JSON.stringify(jsonData, null, 2);
+
+    res.writeHead(200, {
+      "Content-Type": "application/json; charset=utf-8",
+      "Content-Disposition": `attachment; filename="${exportFileName}"`,
+      "Cache-Control": "no-cache, no-store, must-revalidate"
+    });
+    res.end(jsonStr);
+    console.log(`>>> [JSON DOWNLOAD] Đã xuất file JSON chi tiết: ${exportFileName} (${sessions.length} buổi tập) cho [${reqUser || 'admin'}]`);
     return;
   }
 

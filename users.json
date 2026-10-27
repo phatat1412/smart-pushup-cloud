@@ -46,5 +46,15 @@
     "height": 163,
     "weight": 70,
     "createdAt": "2026-10-19T07:09:26.126Z"
+  },
+  {
+    "id": 1793064986435,
+    "username": "thien123",
+    "password": "1234",
+    "fullName": "Nguyễn Phạm Hữu Thiện",
+    "role": "user",
+    "height": 167,
+    "weight": 65,
+    "createdAt": "2026-10-27T01:36:26.435Z"
   }
 ]

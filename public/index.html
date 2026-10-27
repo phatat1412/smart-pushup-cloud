@@ -586,6 +586,64 @@
     .val-invalid { color: #f87171; }
     .val-cadence { color: #38bdf8; }
     .val-calories { color: #fbbf24; }
+    /* GAUGE CHART CALORIES STYLING */
+    .gauge-metric-card {
+      padding: 14px 16px 12px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 180px;
+    }
+
+    .gauge-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2px 0 0 0;
+    }
+
+    .gauge-svg {
+      overflow: visible;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    }
+
+    .gauge-value-display {
+      margin-top: -30px;
+      margin-bottom: 6px;
+      text-align: center;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 4px;
+      z-index: 2;
+    }
+
+    .gauge-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s;
+    }
+
+    .cloud-nav-btn {
+      background: rgba(168, 85, 247, 0.15) !important;
+      border-color: #a855f7 !important;
+      color: #c084fc !important;
+    }
+
+    .cloud-nav-btn:hover {
+      background: #a855f7 !important;
+      color: white !important;
+      box-shadow: 0 4px 14px rgba(168, 85, 247, 0.4);
+    }
+
 
     /* MAIN GRID (CHART & STATUS) */
     .main-grid {
@@ -680,6 +738,16 @@
       transform: translateY(-1px);
       box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5);
     }
+    .export-btn.json-btn {
+      background: linear-gradient(135deg, #0284c7, #0ea5e9);
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.35);
+    }
+
+    .export-btn.json-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(14, 165, 233, 0.55);
+    }
+
 
     .history-table-wrapper {
       overflow-x: auto;
@@ -1379,17 +1447,7 @@
           <button class="btn-login" onclick="login()">Đăng Nhập Ngay</button>
           <div id="loginError"></div>
 
-          <div class="quick-login-title">Đăng nhập nhanh 1 chạm</div>
-          <div class="quick-login-grid">
-            <button class="quick-btn quick-user" onclick="quickLogin('user')">
-              🏃 Người tập
-              <span>(ESP32 Thật - Device 01)</span>
-            </button>
-            <button class="quick-btn quick-admin" onclick="quickLogin('admin')">
-              👑 Admin
-              <span>(ESP32 Ảo - Device 02)</span>
-            </button>
-          </div>
+          
         </div>
 
         <!-- FORM 2: DANG KY -->
@@ -1450,7 +1508,10 @@
       </div>
 
       <div class="header-right">
-          <a href="/guide" target="_blank" class="guide-nav-btn">📖 Hướng dẫn & Cài đặt ESP32</a>
+                  <a id="cloud247Btn" href="https://smart-pushup-cloud.onrender.com" target="_blank" class="guide-nav-btn cloud-nav-btn" title="Mở Dashboard chạy trên Cloud 24/7 (Không cần bật máy tính)">
+          🌐 Server Cloud 24/7
+        </a>
+<a href="/guide" target="_blank" class="guide-nav-btn">📖 Hướng dẫn & Cài đặt ESP32</a>
         <button class="pwa-install-btn" onclick="showPwaModal()">📲 Cài App Điện Thoại</button>
         <!-- VAI TRÒ & CHỌN THIẾT BỊ -->
         <div id="roleBadgeContainer">
@@ -1459,7 +1520,7 @@
 
         <select id="deviceSelect" class="device-select" onchange="switchDevice(this.value)">
           <option value="device01">ESP32 Thật (Device 01 - Cảm biến HC-SR04)</option>
-          <option value="device02">ESP32 Ảo (Device 02 - Simulator)</option>
+          <option value="device02">ESP32 Ảo (Device 02 - Simulator Wokwi)</option>
         </select>
 
         <!-- MQTT STATUS -->
@@ -1547,8 +1608,82 @@
         <span class="metric-unit">cm</span>
       </div>
 
-      <div class="metric-card" id="calorieCard">
-        <div class="metric-label">Calo Tiêu Hao</div>
+      <!-- ĐỒ THỊ GAUGE CALORIES TIÊU HAO THEO THỜI GIAN THỰC -->
+      <div class="metric-card gauge-metric-card" id="calorieCard">
+        <div class="metric-label" style="display:flex; justify-content:space-between; align-items:center;">
+          <span>ĐỒ THỊ GAUGE CALO</span>
+          <span id="gaugeLevelTag" class="gauge-badge">Khởi động</span>
+        </div>
+        
+        <div class="gauge-container">
+          <svg class="gauge-svg" viewBox="0 0 200 120" width="100%" height="115">
+            <defs>
+              <!-- Gradient dải màu đồng hồ Gauge: Xanh ngọc -> Xanh biển -> Vàng cam -> Đỏ cam -->
+              <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#10b981" />
+                <stop offset="35%" stop-color="#38bdf8" />
+                <stop offset="70%" stop-color="#f59e0b" />
+                <stop offset="100%" stop-color="#ef4444" />
+              </linearGradient>
+              <filter id="gaugeGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+
+            <!-- Vòng cung nền xám (Background Track) -->
+            <path d="M 20 105 A 80 80 0 0 1 180 105" 
+                  fill="none" 
+                  stroke="#1e293b" 
+                  stroke-width="14" 
+                  stroke-linecap="round" />
+
+            <!-- Các vạch chia nhỏ (Ticks) -->
+            <path d="M 20 105 A 80 80 0 0 1 180 105" 
+                  fill="none" 
+                  stroke="rgba(255,255,255,0.08)" 
+                  stroke-width="18" 
+                  stroke-dasharray="2 18" />
+
+            <!-- Vòng cung đo Calo động (Progress Arc) -->
+            <path id="gaugeProgressArc" 
+                  d="M 20 105 A 80 80 0 0 1 180 105" 
+                  fill="none" 
+                  stroke="url(#gaugeGradient)" 
+                  stroke-width="14" 
+                  stroke-linecap="round" 
+                  stroke-dasharray="251.3" 
+                  stroke-dashoffset="251.3"
+                  style="transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);" />
+
+            <!-- Các nhãn giá trị Min / Mid / Max -->
+            <text x="20" y="118" fill="#64748b" font-size="10" font-weight="600" text-anchor="middle">0</text>
+            <text x="100" y="24" fill="#64748b" font-size="9" font-weight="600" text-anchor="middle">25</text>
+            <text x="180" y="118" fill="#64748b" font-size="10" font-weight="600" text-anchor="middle">50+</text>
+
+            <!-- Kim đồng hồ Gauge (Needle Pointer) xoay mượt mà từ -90deg tới +90deg -->
+            <g id="gaugeNeedleGroup" style="transform-origin: 100px 105px; transform: rotate(-90deg); transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);">
+              <!-- Kim nhọn màu đỏ cam phát sáng -->
+              <polygon points="97,105 100,32 103,105" fill="#f43f5e" filter="url(#gaugeGlow)" />
+              <polygon points="98,105 100,36 102,105" fill="#fda4af" />
+              <!-- Chốt trục kim tròn ở tâm -->
+              <circle cx="100" cy="105" r="9" fill="#0f172a" stroke="#f43f5e" stroke-width="3" />
+              <circle cx="100" cy="105" r="4" fill="#fbbf24" />
+            </g>
+          </svg>
+
+          <!-- Giá trị số hiển thị ở tâm Gauge -->
+          <div class="gauge-value-display">
+            <span id="calories" class="metric-value val-calories" style="font-size: 26px; line-height: 1;">0.0</span>
+            <span class="metric-unit" style="font-size: 13px; font-weight: 700; color: #fbbf24;">kcal</span>
+          </div>
+        </div>
+
+        <div class="gauge-footer" style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-sub); margin-top: 4px;">
+          <span>🎯 Mục tiêu: <b style="color:#f8fafc;">50 kcal</b></span>
+          <span id="gaugePercent" style="color: #38bdf8; font-weight: 700;">0%</span>
+        </div>
+      </div>
         <span id="calories" class="metric-value val-calories">0.0</span>
         <span class="metric-unit">kcal</span>
       </div>
@@ -1604,6 +1739,9 @@
         <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
           <a id="exportExcelBtn" href="/export-excel" download="SmartPushUp_LichSuTapLuyen.csv" class="export-btn" title="Tải file Excel về điện thoại hoặc máy tính">
             📊 Tải File Excel (.csv)
+          </a>
+          <a id="exportJsonBtn" href="/export-json" download="SmartPushUp_LichSuTapLuyen.json" class="export-btn json-btn" title="Tải file JSON chi tiết đầy đủ thông số buổi tập">
+            📄 Tải File JSON (.json)
           </a>
           <button class="logout-btn" onclick="loadSessions()" style="background:#1e293b; color:white;">🔄 Làm mới</button>
           <button id="resetSessionsBtn" class="logout-btn" onclick="confirmResetSessions()" style="background:rgba(239, 68, 68, 0.15); color:#f87171; border:1px solid rgba(239,68,68,0.4);" title="Xóa/Reset lịch sử buổi tập">
@@ -1774,13 +1912,15 @@
       document.getElementById("mqttDot").classList.remove("online");
     }
 
-    function subscribeCurrentTopics() {
+        function subscribeCurrentTopics() {
       if (!client.connected) return;
       client.subscribe("pushup_ntp113/+/live");
       client.subscribe("pushup/+/live");
-      client.subscribe(TOPIC_LIVE, (err) => {
-        if (!err) console.log("Subscribed:", TOPIC_LIVE);
-      });
+      client.subscribe("pushup_ntp113/+/command");
+      client.subscribe("pushup/+/command");
+      client.subscribe(TOPIC_LIVE);
+      client.subscribe(TOPIC_COMMAND);
+      console.log(">>> [MQTT SUBSCRIBE] Đã đăng ký lắng nghe hai chiều Live & Command cho:", currentDeviceId);
     }
 
     // ======================================================
@@ -1933,7 +2073,8 @@
       }
 
       // Phan quyen thiet bi
-      const targetDev = (user.role === "admin") ? "device02" : "device01";
+      const curDevSel = document.getElementById("deviceSelect");
+      const targetDev = (curDevSel && curDevSel.value) ? curDevSel.value : ((user.role === "admin") ? "device02" : "device01");
       applyRole(user.role || "user", targetDev);
 
       document.getElementById("loginPage").style.display = "none";
@@ -1943,7 +2084,7 @@
 
       loadSessions();
     }
-    function applyRole(role, targetDevice) {
+        function applyRole(role, targetDevice) {
       currentRole = role;
       const roleBadge = document.getElementById("roleBadge");
       const devSelect = document.getElementById("deviceSelect");
@@ -1952,9 +2093,19 @@
       const histTitle = document.getElementById("historySectionTitle");
       const histSub = document.getElementById("historySectionSub");
       const exportBtn = document.getElementById("exportExcelBtn");
+      const exportJsonBtn = document.getElementById("exportJsonBtn");
       const adminFilterBox = document.getElementById("adminFilterBox");
       const colAthlete = document.getElementById("colAthlete");
       const resetSessionsBtn = document.getElementById("resetSessionsBtn");
+
+      // CẢ TÀI KHOẢN ADMIN VÀ CÁC TÀI KHOẢN KHÁC ĐỀU CÓ THỂ CHỌN MẠCH THẬT HOẶC MẠCH ẢO WOKWI
+      if (devSelect) {
+        devSelect.style.display = "inline-block";
+        devSelect.value = targetDevice || "device01";
+      }
+      if (resetBtn) {
+        resetBtn.style.display = "inline-block";
+      }
 
       if (resetSessionsBtn) {
         if (role === "admin") {
@@ -1969,42 +2120,47 @@
       if (role === "admin") {
         roleBadge.className = "role-badge admin";
         roleBadge.innerHTML = "👑 Quản Trị Viên (Admin)";
-        devSelect.style.display = "inline-block";
-        devSelect.value = targetDevice;
-        resetBtn.style.display = "inline-block";
         if (profCard) profCard.style.display = "block";
         if (adminFilterBox) adminFilterBox.style.display = "flex";
         if (colAthlete) colAthlete.style.display = "table-cell";
 
-        if (histTitle) histTitle.innerHTML = "👑 Toàn Bộ Lịch Sử Hệ Thống (Admin Control)";
+        if (histTitle) histTitle.innerHTML = "📋 Toàn Bộ Lịch Sử Hệ Thống (Admin Control)";
         if (histSub) histSub.innerHTML = '<span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#38bdf8;"></span> Quản trị viên có toàn quyền xem và xuất lịch sử tập của tất cả học viên';
         if (exportBtn) {
           exportBtn.href = API_BASE + "/export-excel?role=admin";
           exportBtn.download = "SmartPushUp_ToanBoLichSu.csv";
-          exportBtn.innerHTML = "📊 Tải Toàn Bộ Excel Hệ Thống (.csv)";
+          exportBtn.innerHTML = "📊 Tải Toàn Bộ Excel (.csv)";
+        }
+        if (exportJsonBtn) {
+          exportJsonBtn.href = API_BASE + "/export-json?role=admin";
+          exportJsonBtn.download = "SmartPushUp_ToanBoLichSu.json";
+          exportJsonBtn.innerHTML = "📄 Tải Toàn Bộ JSON (.json)";
         }
         loadAdminUserList();
       } else {
         roleBadge.className = "role-badge user";
-        roleBadge.innerHTML = "🏃 Vận Động Viên (Mạch Thật)";
-        devSelect.style.display = "none";
-        resetBtn.style.display = "none";
+        roleBadge.innerHTML = "🏃 Học Viên Tập Luyện";
         if (profCard) profCard.style.display = "block";
         if (adminFilterBox) adminFilterBox.style.display = "none";
         if (colAthlete) colAthlete.style.display = "none";
 
         const name = currentUser ? (currentUser.fullName || currentUser.username) : "Bạn";
         const uname = currentUser ? currentUser.username : "user";
-        if (histTitle) histTitle.innerHTML = '📊 Lịch Sử Tập Luyện Của Bạn (<span style="color:#38bdf8;">' + name + '</span>)';
+        if (histTitle) histTitle.innerHTML = '📋 Lịch Sử Tập Luyện Của Bạn (<span style="color:#38bdf8;">' + name + '</span>)';
         if (histSub) histSub.innerHTML = '<span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#10b981;"></span> Chỉ hiển thị riêng lịch sử bài tập của tài khoản @' + uname;
         if (exportBtn) {
           exportBtn.href = API_BASE + '/export-excel?username=' + encodeURIComponent(uname) + '&role=user';
           exportBtn.download = 'SmartPushUp_LichSu_' + uname + '.csv';
           exportBtn.innerHTML = '📊 Tải File Excel Của Bạn (.csv)';
         }
+        if (exportJsonBtn) {
+          exportJsonBtn.href = API_BASE + '/export-json?username=' + encodeURIComponent(uname) + '&role=user';
+          exportJsonBtn.download = 'SmartPushUp_LichSu_' + uname + '.json';
+          exportJsonBtn.innerHTML = '📄 Tải File JSON Của Bạn (.json)';
+        }
       }
 
-      switchDevice(targetDevice);
+      switchDevice(targetDevice || "device01");
     }
 
     async function loadAdminUserList() {
@@ -2065,35 +2221,57 @@
       }
     }
 
-    function onAdminFilterChange() {
+        function onAdminFilterChange() {
       const sel = document.getElementById("adminAthleteSelect");
       const exportBtn = document.getElementById("exportExcelBtn");
-      if (exportBtn && sel) {
+      const exportJsonBtn = document.getElementById("exportJsonBtn");
+      if (sel) {
         const val = sel.value;
         if (val === "all") {
-          exportBtn.href = API_BASE + "/export-excel?role=admin";
-          exportBtn.download = "SmartPushUp_ToanBoLichSu.csv";
+          if (exportBtn) {
+            exportBtn.href = API_BASE + "/export-excel?role=admin";
+            exportBtn.download = "SmartPushUp_ToanBoLichSu.csv";
+          }
+          if (exportJsonBtn) {
+            exportJsonBtn.href = API_BASE + "/export-json?role=admin";
+            exportJsonBtn.download = "SmartPushUp_ToanBoLichSu.json";
+          }
         } else {
-          exportBtn.href = API_BASE + "/export-excel?role=admin&filterUser=" + encodeURIComponent(val);
-          exportBtn.download = "SmartPushUp_LichSu_" + val + ".csv";
+          if (exportBtn) {
+            exportBtn.href = API_BASE + "/export-excel?role=admin&filterUser=" + encodeURIComponent(val);
+            exportBtn.download = "SmartPushUp_LichSu_" + val + ".csv";
+          }
+          if (exportJsonBtn) {
+            exportJsonBtn.href = API_BASE + "/export-json?role=admin&filterUser=" + encodeURIComponent(val);
+            exportJsonBtn.download = "SmartPushUp_LichSu_" + val + ".json";
+          }
         }
       }
       loadSessions();
     }
 
-    function switchDevice(newDev) {
+        function switchDevice(newDev) {
       const prevDev = currentDeviceId;
       currentDeviceId = newDev;
       TOPIC_LIVE = "pushup_ntp113/" + newDev + "/live";
       TOPIC_COMMAND = "pushup_ntp113/" + newDev + "/command";
 
+      const devSel = document.getElementById("deviceSelect");
+      if (devSel && devSel.value !== newDev) {
+        devSel.value = newDev;
+      }
+
       if (client && client.connected) {
         client.subscribe(TOPIC_LIVE);
         client.subscribe("pushup/" + newDev + "/live");
+        client.subscribe(TOPIC_COMMAND);
+        client.subscribe("pushup/" + newDev + "/command");
       }
 
-      document.getElementById("deviceIdDisplay").innerText = (newDev === "device01") ? "ESP32_01 (Thật)" : "ESP32_02 (Ảo)";
-      document.getElementById("chartSub").innerText = "Đang theo dõi: " + ((newDev === "device01") ? "Mạch Thật (HC-SR04)" : "Mạch Ảo (Simulator)");
+      const disp = document.getElementById("deviceIdDisplay");
+      if (disp) disp.innerText = (newDev === "device01") ? "ESP32_01 (Thật)" : "ESP32_02 (Ảo)";
+      const cSub = document.getElementById("chartSub");
+      if (cSub) cSub.innerText = "Đang theo dõi: " + ((newDev === "device01") ? "Mạch Thật (HC-SR04)" : "Mạch Ảo (Simulator Wokwi)");
 
       if (prevDev !== newDev) {
         resetMetricsDisplay();
@@ -2108,6 +2286,7 @@
       setText("cadence", "0.0");
       setText("distance", "--");
       setText("calories", "0.0");
+      updateCalorieGauge(0);
       setText("trainingStatus", "READY");
       setText("bodyState", "UP");
     }
@@ -2139,14 +2318,45 @@
     // ======================================================
     // NHẬN DỮ LIỆU MQTT TELEMETRY & CHATBOT
     // ======================================================
-    client.on("message", (topic, message) => {
+        client.on("message", (topic, message) => {
       const text = message.toString();
 
-      if (topic === "pushup_ntp113/chat/server_to_web") {
+      if (topic === "chat/server_to_web" || topic === "pushup_ntp113/chat/server_to_web") {
         appendChatMessage("bot", text);
         return;
       }
 
+      // ĐỒNG BỘ HAI CHIỀU: NHẬN LỆNH ĐIỀU KHIỂN TỪ NÚT BẤM VẬT LÝ WOKWI HOẶC ESP32
+      if (topic.endsWith("/command")) {
+        const isCurrentDev = topic.includes(currentDeviceId) || topic.includes("device02") || topic.includes("device01");
+        if (isCurrentDev) {
+          const cmd = text.trim();
+          console.log(`>>> [MQTT COMMAND SYNC] [${topic}]: ${cmd}`);
+
+          if (cmd.startsWith("START")) {
+            if (!timerInterval) {
+              resetTimer();
+              startTimer();
+            }
+            setText("trainingStatus", "TRAINING");
+            console.log(">>> [SYNC] Wokwi/ESP32 đã bấm START -> Web đồng bộ bắt đầu đếm giờ!");
+          } else if (cmd === "STOP") {
+            stopTimer();
+            setText("trainingStatus", "READY");
+            setTimeout(loadSessions, 700);
+            console.log(">>> [SYNC] Wokwi/ESP32 đã bấm STOP -> Web đồng bộ dừng & tải buổi tập!");
+          } else if (cmd === "RESET") {
+            stopTimer();
+            resetTimer();
+            resetMetricsDisplay();
+            setText("trainingStatus", "READY");
+            console.log(">>> [SYNC] Wokwi/ESP32 đã bấm RESET -> Web đồng bộ đặt lại về 0!");
+          }
+        }
+        return;
+      }
+
+      // XỬ LÝ DỮ LIỆU TELEMETRY LIVE
       if (topic === TOPIC_LIVE || topic.endsWith("/" + currentDeviceId + "/live") || topic.includes(currentDeviceId + "/live")) {
         try {
           const data = JSON.parse(text);
@@ -2157,7 +2367,63 @@
       }
     });
 
-    function updateDashboard(data) {
+    
+    // ======================================================
+    // CẬP NHẬT ĐỒ THỊ GAUGE ĐO CALORIES TIÊU HAO (ANIMATED)
+    // ======================================================
+    function updateCalorieGauge(val) {
+      const num = parseFloat(val) || 0;
+      const MAX_CAL = 50.0; // Thang đo tối đa 50 kcal cho 1 bài tập
+      const ratio = Math.min(Math.max(num / MAX_CAL, 0), 1);
+
+      // Cập nhật vòng cung đo Calo
+      const arc = document.getElementById("gaugeProgressArc");
+      if (arc) {
+        const offset = 251.3 * (1 - ratio);
+        arc.style.strokeDashoffset = offset.toFixed(1);
+      }
+
+      // Cập nhật kim xoay Gauge (-90deg đến +90deg)
+      const needle = document.getElementById("gaugeNeedleGroup");
+      if (needle) {
+        const angle = -90 + (ratio * 180);
+        needle.style.transform = "rotate(" + angle.toFixed(1) + "deg)";
+      }
+
+      // Cập nhật phần trăm mục tiêu
+      const pctEl = document.getElementById("gaugePercent");
+      if (pctEl) {
+        pctEl.innerText = Math.round((num / MAX_CAL) * 100) + "%";
+      }
+
+      // Cập nhật nhãn phân loại cường độ đốt mỡ
+      const tag = document.getElementById("gaugeLevelTag");
+      if (tag) {
+        if (num < 10) {
+          tag.innerText = "Khởi động";
+          tag.style.background = "rgba(16, 185, 129, 0.15)";
+          tag.style.color = "#34d399";
+          tag.style.borderColor = "rgba(16, 185, 129, 0.3)";
+        } else if (num < 25) {
+          tag.innerText = "Đốt mỡ nhẹ";
+          tag.style.background = "rgba(56, 189, 248, 0.15)";
+          tag.style.color = "#38bdf8";
+          tag.style.borderColor = "rgba(56, 189, 248, 0.3)";
+        } else if (num < 40) {
+          tag.innerText = "Đốt mỡ tối ưu";
+          tag.style.background = "rgba(245, 158, 11, 0.15)";
+          tag.style.color = "#fbbf24";
+          tag.style.borderColor = "rgba(245, 158, 11, 0.3)";
+        } else {
+          tag.innerText = "Cực đại (HIIT)";
+          tag.style.background = "rgba(239, 68, 68, 0.15)";
+          tag.style.color = "#f87171";
+          tag.style.borderColor = "rgba(239, 68, 68, 0.3)";
+        }
+      }
+    }
+
+function updateDashboard(data) {
       const repVal = data.rep ?? 0;
       const validVal = data.validRep ?? 0;
       const invalidVal = data.invalidRep ?? 0;
@@ -2171,9 +2437,22 @@
       setText("trainingStatus", data.status ?? "READY");
       setText("bodyState", data.state ?? "UP");
 
+      // TỰ ĐỘNG ĐỒNG BỘ BẤM GIỜ NẾU WOKWI BẮT ĐẦU TẬP (MÀ WEB CHƯA BẤM START)
+      if (data.status === "TRAINING") {
+        if (!timerInterval) {
+          startTimer();
+          setText("trainingStatus", "TRAINING");
+        }
+      } else if (data.status === "READY" && timerInterval && repVal > 0) {
+        stopTimer();
+        setText("trainingStatus", "READY");
+        setTimeout(loadSessions, 700);
+      }
+
       // TÍNH TOÁN CALO CHUẨN XÁC DỰA VÀO CÂN NẶNG & REP
       const totalCal = ((validVal * kcalPerRep) + (invalidVal * kcalPerRep * 0.5)).toFixed(1);
       setText("calories", totalCal);
+      updateCalorieGauge(totalCal);
 
       const bodyEl = document.getElementById("bodyState");
       if (bodyEl) {

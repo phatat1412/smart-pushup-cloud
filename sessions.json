@@ -1,266 +1,1842 @@
 [
   {
     "id": 1,
-    "deviceId": "ESP32_01",
-    "startTime": "2026-10-12T02:35:28.392Z",
-    "endTime": "2026-10-12T02:37:28.393Z",
+    "sessionCode": "PUSHUP-20261012-1",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-12T02:35:28.392Z",
+      "endTime": "2026-10-12T02:37:28.393Z",
+      "startTimeFormatted": "2026-10-12 09:35:28",
+      "endTimeFormatted": "2026-10-12 09:37:28",
+      "durationSeconds": 120,
+      "durationFormatted": "2p 0s"
+    },
+    "performance": {
+      "totalRep": 20,
+      "validRep": 18,
+      "invalidRep": 2,
+      "accuracyPercent": 90,
+      "cadenceRpm": 28.5,
+      "caloriesBurnedKcal": 8.1
+    },
+    "evaluation": {
+      "rating": "Kỹ thuật xuất sắc",
+      "feedback": "Kỹ thuật tuyệt vời! Biên độ chuyển động hoàn hảo, nhịp độ và tư thế đạt chuẩn cao."
+    },
     "rep": 20,
     "validRep": 18,
     "invalidRep": 2,
     "cadence": 28.5,
+    "accuracy": 90,
+    "deviceId": "ESP32_01",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-12T02:35:28.392Z",
+    "endTime": "2026-10-12T02:37:28.393Z",
+    "duration": "2p 0s",
+    "calories": 8.1,
+    "rating": "Kỹ thuật xuất sắc"
   },
   {
     "id": 1791776206552,
-    "deviceId": "ESP32_01",
-    "startTime": "2026-10-12T03:36:46.552Z",
-    "endTime": "2026-10-12T03:37:20.246Z",
+    "sessionCode": "PUSHUP-20261012-6552",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-12T03:36:46.552Z",
+      "endTime": "2026-10-12T03:37:20.246Z",
+      "startTimeFormatted": "2026-10-12 10:36:46",
+      "endTimeFormatted": "2026-10-12 10:37:20",
+      "durationSeconds": 34,
+      "durationFormatted": "34s"
+    },
+    "performance": {
+      "totalRep": 10,
+      "validRep": 10,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 85.7,
+      "caloriesBurnedKcal": 4.5
+    },
+    "evaluation": {
+      "rating": "Tốt",
+      "feedback": "Động tác rất tốt! Kiểm soát cơ thể ổn định trong suốt buổi tập."
+    },
     "rep": 10,
     "validRep": 10,
     "invalidRep": 0,
     "cadence": 85.7,
+    "accuracy": 100,
+    "deviceId": "ESP32_01",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-12T03:36:46.552Z",
+    "endTime": "2026-10-12T03:37:20.246Z",
+    "duration": "34s",
+    "calories": 4.5,
+    "rating": "Tốt"
   },
   {
     "id": 1791777553550,
-    "deviceId": "ESP32_01",
-    "startTime": "2026-10-12T03:59:13.550Z",
-    "endTime": "2026-10-12T04:00:03.125Z",
+    "sessionCode": "PUSHUP-20261012-3550",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-12T03:59:13.550Z",
+      "endTime": "2026-10-12T04:00:03.125Z",
+      "startTimeFormatted": "2026-10-12 10:59:13",
+      "endTimeFormatted": "2026-10-12 11:00:03",
+      "durationSeconds": 50,
+      "durationFormatted": "50s"
+    },
+    "performance": {
+      "totalRep": 28,
+      "validRep": 26,
+      "invalidRep": 2,
+      "accuracyPercent": 92.9,
+      "cadenceRpm": 95.2,
+      "caloriesBurnedKcal": 11.7
+    },
+    "evaluation": {
+      "rating": "Kỹ thuật xuất sắc",
+      "feedback": "Kỹ thuật tuyệt vời! Biên độ chuyển động hoàn hảo, nhịp độ và tư thế đạt chuẩn cao."
+    },
     "rep": 28,
     "validRep": 26,
     "invalidRep": 2,
     "cadence": 95.2,
+    "accuracy": 92.9,
+    "deviceId": "ESP32_01",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-12T03:59:13.550Z",
+    "endTime": "2026-10-12T04:00:03.125Z",
+    "duration": "50s",
+    "calories": 11.7,
+    "rating": "Kỹ thuật xuất sắc"
   },
   {
     "id": 1791778321684,
-    "deviceId": "ESP32_01",
-    "startTime": "2026-10-12T04:12:01.684Z",
-    "endTime": "2026-10-12T04:12:55.796Z",
+    "sessionCode": "PUSHUP-20261012-1684",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-12T04:12:01.684Z",
+      "endTime": "2026-10-12T04:12:55.796Z",
+      "startTimeFormatted": "2026-10-12 11:12:01",
+      "endTimeFormatted": "2026-10-12 11:12:55",
+      "durationSeconds": 54,
+      "durationFormatted": "54s"
+    },
+    "performance": {
+      "totalRep": 0,
+      "validRep": 0,
+      "invalidRep": 0,
+      "accuracyPercent": 0,
+      "cadenceRpm": 0,
+      "caloriesBurnedKcal": 0
+    },
+    "evaluation": {
+      "rating": "Chưa hoàn thành",
+      "feedback": "Cần cải thiện độ sâu khi hạ ngực để ghi nhận rep chuẩn."
+    },
     "rep": 0,
     "validRep": 0,
     "invalidRep": 0,
     "cadence": 0,
+    "accuracy": 0,
+    "deviceId": "ESP32_01",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-12T04:12:01.684Z",
+    "endTime": "2026-10-12T04:12:55.796Z",
+    "duration": "54s",
+    "calories": 0,
+    "rating": "Chưa hoàn thành"
   },
   {
     "id": 1791778318807,
-    "deviceId": "ESP32_02",
-    "startTime": "2026-10-12T04:11:58.807Z",
-    "endTime": "2026-10-12T04:13:29.292Z",
+    "sessionCode": "PUSHUP-20261012-8807",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-12T04:11:58.807Z",
+      "endTime": "2026-10-12T04:13:29.292Z",
+      "startTimeFormatted": "2026-10-12 11:11:58",
+      "endTimeFormatted": "2026-10-12 11:13:29",
+      "durationSeconds": 90,
+      "durationFormatted": "1p 30s"
+    },
+    "performance": {
+      "totalRep": 22,
+      "validRep": 22,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 106,
+      "caloriesBurnedKcal": 9.9
+    },
+    "evaluation": {
+      "rating": "Kỹ thuật xuất sắc",
+      "feedback": "Kỹ thuật tuyệt vời! Biên độ chuyển động hoàn hảo, nhịp độ và tư thế đạt chuẩn cao."
+    },
     "rep": 22,
     "validRep": 22,
     "invalidRep": 0,
     "cadence": 106,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-12T04:11:58.807Z",
+    "endTime": "2026-10-12T04:13:29.292Z",
+    "duration": "1p 30s",
+    "calories": 9.9,
+    "rating": "Kỹ thuật xuất sắc"
   },
   {
     "id": 1791778429756,
-    "deviceId": "ESP32_01",
-    "startTime": "2026-10-12T04:13:49.756Z",
-    "endTime": "2026-10-12T04:14:18.596Z",
+    "sessionCode": "PUSHUP-20261012-9756",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-12T04:13:49.756Z",
+      "endTime": "2026-10-12T04:14:18.596Z",
+      "startTimeFormatted": "2026-10-12 11:13:49",
+      "endTimeFormatted": "2026-10-12 11:14:18",
+      "durationSeconds": 29,
+      "durationFormatted": "29s"
+    },
+    "performance": {
+      "totalRep": 23,
+      "validRep": 20,
+      "invalidRep": 3,
+      "accuracyPercent": 87,
+      "cadenceRpm": 71.5,
+      "caloriesBurnedKcal": 9
+    },
+    "evaluation": {
+      "rating": "Tốt",
+      "feedback": "Động tác rất tốt! Kiểm soát cơ thể ổn định trong suốt buổi tập."
+    },
     "rep": 23,
     "validRep": 20,
     "invalidRep": 3,
     "cadence": 71.5,
+    "accuracy": 87,
+    "deviceId": "ESP32_01",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-12T04:13:49.756Z",
+    "endTime": "2026-10-12T04:14:18.596Z",
+    "duration": "29s",
+    "calories": 9,
+    "rating": "Tốt"
   },
   {
     "id": 1791778474748,
-    "deviceId": "ESP32_02",
-    "startTime": "2026-10-12T04:14:34.748Z",
-    "endTime": "2026-10-12T04:14:58.566Z",
+    "sessionCode": "PUSHUP-20261012-4748",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-12T04:14:34.748Z",
+      "endTime": "2026-10-12T04:14:58.566Z",
+      "startTimeFormatted": "2026-10-12 11:14:34",
+      "endTimeFormatted": "2026-10-12 11:14:58",
+      "durationSeconds": 24,
+      "durationFormatted": "24s"
+    },
+    "performance": {
+      "totalRep": 11,
+      "validRep": 11,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 64.3,
+      "caloriesBurnedKcal": 5
+    },
+    "evaluation": {
+      "rating": "Tốt",
+      "feedback": "Động tác rất tốt! Kiểm soát cơ thể ổn định trong suốt buổi tập."
+    },
     "rep": 11,
     "validRep": 11,
     "invalidRep": 0,
     "cadence": 64.3,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-12T04:14:34.748Z",
+    "endTime": "2026-10-12T04:14:58.566Z",
+    "duration": "24s",
+    "calories": 5,
+    "rating": "Tốt"
   },
   {
     "id": 1791786346624,
-    "deviceId": "ESP32_01",
-    "startTime": "2026-10-12T06:25:46.624Z",
-    "endTime": "2026-10-12T06:27:00.994Z",
+    "sessionCode": "PUSHUP-20261012-6624",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-12T06:25:46.624Z",
+      "endTime": "2026-10-12T06:27:00.994Z",
+      "startTimeFormatted": "2026-10-12 13:25:46",
+      "endTimeFormatted": "2026-10-12 13:27:00",
+      "durationSeconds": 74,
+      "durationFormatted": "1p 14s"
+    },
+    "performance": {
+      "totalRep": 13,
+      "validRep": 13,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 39,
+      "caloriesBurnedKcal": 5.9
+    },
+    "evaluation": {
+      "rating": "Tốt",
+      "feedback": "Động tác rất tốt! Kiểm soát cơ thể ổn định trong suốt buổi tập."
+    },
     "rep": 13,
     "validRep": 13,
     "invalidRep": 0,
     "cadence": 39,
+    "accuracy": 100,
+    "deviceId": "ESP32_01",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-12T06:25:46.624Z",
+    "endTime": "2026-10-12T06:27:00.994Z",
+    "duration": "1p 14s",
+    "calories": 5.9,
+    "rating": "Tốt"
   },
   {
     "id": 1791786445364,
-    "deviceId": "ESP32_01",
-    "startTime": "2026-10-12T06:27:25.364Z",
-    "endTime": "2026-10-12T06:59:06.017Z",
+    "sessionCode": "PUSHUP-20261012-5364",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-12T06:27:25.364Z",
+      "endTime": "2026-10-12T06:59:06.017Z",
+      "startTimeFormatted": "2026-10-12 13:27:25",
+      "endTimeFormatted": "2026-10-12 13:59:06",
+      "durationSeconds": 1901,
+      "durationFormatted": "31p 41s"
+    },
+    "performance": {
+      "totalRep": 22,
+      "validRep": 21,
+      "invalidRep": 1,
+      "accuracyPercent": 95.5,
+      "cadenceRpm": 16.5,
+      "caloriesBurnedKcal": 9.5
+    },
+    "evaluation": {
+      "rating": "Kỹ thuật xuất sắc",
+      "feedback": "Kỹ thuật tuyệt vời! Biên độ chuyển động hoàn hảo, nhịp độ và tư thế đạt chuẩn cao."
+    },
     "rep": 22,
     "validRep": 21,
     "invalidRep": 1,
     "cadence": 16.5,
+    "accuracy": 95.5,
+    "deviceId": "ESP32_01",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-12T06:27:25.364Z",
+    "endTime": "2026-10-12T06:59:06.017Z",
+    "duration": "31p 41s",
+    "calories": 9.5,
+    "rating": "Kỹ thuật xuất sắc"
   },
   {
     "id": 1791902953344,
-    "deviceId": "ESP32_02",
-    "startTime": "2026-10-13T14:49:13.344Z",
-    "endTime": "2026-10-13T14:49:46.742Z",
+    "sessionCode": "PUSHUP-20261013-3344",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-13T14:49:13.344Z",
+      "endTime": "2026-10-13T14:49:46.742Z",
+      "startTimeFormatted": "2026-10-13 21:49:13",
+      "endTimeFormatted": "2026-10-13 21:49:46",
+      "durationSeconds": 33,
+      "durationFormatted": "33s"
+    },
+    "performance": {
+      "totalRep": 97,
+      "validRep": 97,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 106,
+      "caloriesBurnedKcal": 43.6
+    },
+    "evaluation": {
+      "rating": "Kỹ thuật xuất sắc",
+      "feedback": "Kỹ thuật tuyệt vời! Biên độ chuyển động hoàn hảo, nhịp độ và tư thế đạt chuẩn cao."
+    },
     "rep": 97,
     "validRep": 97,
     "invalidRep": 0,
     "cadence": 106,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-13T14:49:13.344Z",
+    "endTime": "2026-10-13T14:49:46.742Z",
+    "duration": "33s",
+    "calories": 43.6,
+    "rating": "Kỹ thuật xuất sắc"
   },
   {
     "id": 1791903098126,
-    "deviceId": "ESP32_01",
-    "startTime": "2026-10-13T14:51:38.126Z",
-    "endTime": "2026-10-13T14:53:01.710Z",
+    "sessionCode": "PUSHUP-20261013-8126",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-13T14:51:38.126Z",
+      "endTime": "2026-10-13T14:53:01.710Z",
+      "startTimeFormatted": "2026-10-13 21:51:38",
+      "endTimeFormatted": "2026-10-13 21:53:01",
+      "durationSeconds": 84,
+      "durationFormatted": "1p 24s"
+    },
+    "performance": {
+      "totalRep": 14,
+      "validRep": 12,
+      "invalidRep": 2,
+      "accuracyPercent": 85.7,
+      "cadenceRpm": 71.6,
+      "caloriesBurnedKcal": 5.4
+    },
+    "evaluation": {
+      "rating": "Tốt",
+      "feedback": "Động tác rất tốt! Kiểm soát cơ thể ổn định trong suốt buổi tập."
+    },
     "rep": 14,
     "validRep": 12,
     "invalidRep": 2,
     "cadence": 71.6,
+    "accuracy": 85.7,
+    "deviceId": "ESP32_01",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-13T14:51:38.126Z",
+    "endTime": "2026-10-13T14:53:01.710Z",
+    "duration": "1p 24s",
+    "calories": 5.4,
+    "rating": "Tốt"
   },
   {
     "id": 1792370850777,
-    "deviceId": "ESP32_02",
-    "startTime": "2026-10-19T00:47:30.777Z",
-    "endTime": "2026-10-19T00:48:23.464Z",
+    "sessionCode": "PUSHUP-20261019-0777",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-19T00:47:30.777Z",
+      "endTime": "2026-10-19T00:48:23.464Z",
+      "startTimeFormatted": "2026-10-19 07:47:30",
+      "endTimeFormatted": "2026-10-19 07:48:23",
+      "durationSeconds": 53,
+      "durationFormatted": "53s"
+    },
+    "performance": {
+      "totalRep": 0,
+      "validRep": 0,
+      "invalidRep": 0,
+      "accuracyPercent": 0,
+      "cadenceRpm": 0,
+      "caloriesBurnedKcal": 0
+    },
+    "evaluation": {
+      "rating": "Chưa hoàn thành",
+      "feedback": "Cần cải thiện độ sâu khi hạ ngực để ghi nhận rep chuẩn."
+    },
     "rep": 0,
     "validRep": 0,
     "invalidRep": 0,
     "cadence": 0,
+    "accuracy": 0,
+    "deviceId": "ESP32_02",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-19T00:47:30.777Z",
+    "endTime": "2026-10-19T00:48:23.464Z",
+    "duration": "53s",
+    "calories": 0,
+    "rating": "Chưa hoàn thành"
   },
   {
     "id": 1792380938197,
-    "deviceId": "ESP32_02",
-    "startTime": "2026-10-19T03:35:38.197Z",
-    "endTime": "2026-10-19T03:36:01.194Z",
+    "sessionCode": "PUSHUP-20261019-8197",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-19T03:35:38.197Z",
+      "endTime": "2026-10-19T03:36:01.194Z",
+      "startTimeFormatted": "2026-10-19 10:35:38",
+      "endTimeFormatted": "2026-10-19 10:36:01",
+      "durationSeconds": 23,
+      "durationFormatted": "23s"
+    },
+    "performance": {
+      "totalRep": 6,
+      "validRep": 6,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 61.3,
+      "caloriesBurnedKcal": 2.7
+    },
+    "evaluation": {
+      "rating": "Đạt yêu cầu",
+      "feedback": "Đạt yêu cầu thể lực. Chú ý hạ ngực sát cảm biến hơn để tăng số rep chuẩn."
+    },
     "rep": 6,
     "validRep": 6,
     "invalidRep": 0,
     "cadence": 61.3,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-19T03:35:38.197Z",
+    "endTime": "2026-10-19T03:36:01.194Z",
+    "duration": "23s",
+    "calories": 2.7,
+    "rating": "Đạt yêu cầu"
   },
   {
     "id": 1792380966945,
-    "deviceId": "ESP32_02",
-    "startTime": "2026-10-19T03:36:06.945Z",
-    "endTime": "2026-10-19T03:36:21.659Z",
+    "sessionCode": "PUSHUP-20261019-6945",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-19T03:36:06.945Z",
+      "endTime": "2026-10-19T03:36:21.659Z",
+      "startTimeFormatted": "2026-10-19 10:36:06",
+      "endTimeFormatted": "2026-10-19 10:36:21",
+      "durationSeconds": 15,
+      "durationFormatted": "15s"
+    },
+    "performance": {
+      "totalRep": 27,
+      "validRep": 27,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 79.2,
+      "caloriesBurnedKcal": 12.2
+    },
+    "evaluation": {
+      "rating": "Kỹ thuật xuất sắc",
+      "feedback": "Kỹ thuật tuyệt vời! Biên độ chuyển động hoàn hảo, nhịp độ và tư thế đạt chuẩn cao."
+    },
     "rep": 27,
     "validRep": 27,
     "invalidRep": 0,
     "cadence": 79.2,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-19T03:36:06.945Z",
+    "endTime": "2026-10-19T03:36:21.659Z",
+    "duration": "15s",
+    "calories": 12.2,
+    "rating": "Kỹ thuật xuất sắc"
   },
   {
     "id": 1792381679961,
-    "deviceId": "ESP32_02",
-    "startTime": "2026-10-19T03:47:59.961Z",
-    "endTime": "2026-10-19T03:48:11.774Z",
+    "sessionCode": "PUSHUP-20261019-9961",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-19T03:47:59.961Z",
+      "endTime": "2026-10-19T03:48:11.774Z",
+      "startTimeFormatted": "2026-10-19 10:47:59",
+      "endTimeFormatted": "2026-10-19 10:48:11",
+      "durationSeconds": 12,
+      "durationFormatted": "12s"
+    },
+    "performance": {
+      "totalRep": 5,
+      "validRep": 5,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 117.6,
+      "caloriesBurnedKcal": 2.3
+    },
+    "evaluation": {
+      "rating": "Đạt yêu cầu",
+      "feedback": "Đạt yêu cầu thể lực. Chú ý hạ ngực sát cảm biến hơn để tăng số rep chuẩn."
+    },
     "rep": 5,
     "validRep": 5,
     "invalidRep": 0,
     "cadence": 117.6,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-19T03:47:59.961Z",
+    "endTime": "2026-10-19T03:48:11.774Z",
+    "duration": "12s",
+    "calories": 2.3,
+    "rating": "Đạt yêu cầu"
   },
   {
     "id": 1792381746302,
-    "deviceId": "ESP32_02",
-    "startTime": "2026-10-19T03:49:06.302Z",
-    "endTime": "2026-10-19T03:49:53.888Z",
+    "sessionCode": "PUSHUP-20261019-6302",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-19T03:49:06.302Z",
+      "endTime": "2026-10-19T03:49:53.888Z",
+      "startTimeFormatted": "2026-10-19 10:49:06",
+      "endTimeFormatted": "2026-10-19 10:49:53",
+      "durationSeconds": 48,
+      "durationFormatted": "48s"
+    },
+    "performance": {
+      "totalRep": 10,
+      "validRep": 10,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 120,
+      "caloriesBurnedKcal": 4.5
+    },
+    "evaluation": {
+      "rating": "Tốt",
+      "feedback": "Động tác rất tốt! Kiểm soát cơ thể ổn định trong suốt buổi tập."
+    },
     "rep": 10,
     "validRep": 10,
     "invalidRep": 0,
     "cadence": 120,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-19T03:49:06.302Z",
+    "endTime": "2026-10-19T03:49:53.888Z",
+    "duration": "48s",
+    "calories": 4.5,
+    "rating": "Tốt"
   },
   {
     "id": 1792391555802,
-    "deviceId": "ESP32_01",
-    "startTime": "2026-10-19T06:32:35.802Z",
-    "endTime": "2026-10-19T06:34:27.283Z",
+    "sessionCode": "PUSHUP-20261019-5802",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-19T06:32:35.802Z",
+      "endTime": "2026-10-19T06:34:27.283Z",
+      "startTimeFormatted": "2026-10-19 13:32:35",
+      "endTimeFormatted": "2026-10-19 13:34:27",
+      "durationSeconds": 111,
+      "durationFormatted": "1p 51s"
+    },
+    "performance": {
+      "totalRep": 20,
+      "validRep": 17,
+      "invalidRep": 3,
+      "accuracyPercent": 85,
+      "cadenceRpm": 107.1,
+      "caloriesBurnedKcal": 7.7
+    },
+    "evaluation": {
+      "rating": "Tốt",
+      "feedback": "Động tác rất tốt! Kiểm soát cơ thể ổn định trong suốt buổi tập."
+    },
     "rep": 20,
     "validRep": 17,
     "invalidRep": 3,
     "cadence": 107.1,
+    "accuracy": 85,
+    "deviceId": "ESP32_01",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-19T06:32:35.802Z",
+    "endTime": "2026-10-19T06:34:27.283Z",
+    "duration": "1p 51s",
+    "calories": 7.7,
+    "rating": "Tốt"
   },
   {
     "id": 1792738560190,
-    "deviceId": "ESP32_01",
-    "startTime": "2026-10-23T06:56:00.190Z",
-    "endTime": "2026-10-23T06:56:07.257Z",
+    "sessionCode": "PUSHUP-20261023-0190",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-23T06:56:00.190Z",
+      "endTime": "2026-10-23T06:56:07.257Z",
+      "startTimeFormatted": "2026-10-23 13:56:00",
+      "endTimeFormatted": "2026-10-23 13:56:07",
+      "durationSeconds": 7,
+      "durationFormatted": "7s"
+    },
+    "performance": {
+      "totalRep": 0,
+      "validRep": 0,
+      "invalidRep": 0,
+      "accuracyPercent": 0,
+      "cadenceRpm": 0,
+      "caloriesBurnedKcal": 0
+    },
+    "evaluation": {
+      "rating": "Chưa hoàn thành",
+      "feedback": "Cần cải thiện độ sâu khi hạ ngực để ghi nhận rep chuẩn."
+    },
     "rep": 0,
     "validRep": 0,
     "invalidRep": 0,
     "cadence": 0,
+    "accuracy": 0,
+    "deviceId": "ESP32_01",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-23T06:56:00.190Z",
+    "endTime": "2026-10-23T06:56:07.257Z",
+    "duration": "7s",
+    "calories": 0,
+    "rating": "Chưa hoàn thành"
   },
   {
     "id": 1792739806504,
-    "deviceId": "ESP32_01",
-    "startTime": "2026-10-23T07:16:46.504Z",
-    "endTime": "2026-10-23T07:17:21.384Z",
+    "sessionCode": "PUSHUP-20261023-6504",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-23T07:16:46.504Z",
+      "endTime": "2026-10-23T07:17:21.384Z",
+      "startTimeFormatted": "2026-10-23 14:16:46",
+      "endTimeFormatted": "2026-10-23 14:17:21",
+      "durationSeconds": 35,
+      "durationFormatted": "35s"
+    },
+    "performance": {
+      "totalRep": 24,
+      "validRep": 21,
+      "invalidRep": 3,
+      "accuracyPercent": 87.5,
+      "cadenceRpm": 48.5,
+      "caloriesBurnedKcal": 9.5
+    },
+    "evaluation": {
+      "rating": "Tốt",
+      "feedback": "Động tác rất tốt! Kiểm soát cơ thể ổn định trong suốt buổi tập."
+    },
     "rep": 24,
     "validRep": 21,
     "invalidRep": 3,
     "cadence": 48.5,
+    "accuracy": 87.5,
+    "deviceId": "ESP32_01",
     "username": "user",
-    "fullName": "Học Viên Tập Luyện"
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-23T07:16:46.504Z",
+    "endTime": "2026-10-23T07:17:21.384Z",
+    "duration": "35s",
+    "calories": 9.5,
+    "rating": "Tốt"
   },
   {
     "id": 1792777768384,
+    "sessionCode": "PUSHUP-20261024-8384",
+    "athlete": {
+      "username": "ntp113",
+      "fullName": "Nguyen Tan Phat"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-23T17:49:28.384Z",
+      "endTime": "2026-10-23T17:49:58.775Z",
+      "startTimeFormatted": "2026-10-24 00:49:28",
+      "endTimeFormatted": "2026-10-24 00:49:58",
+      "durationSeconds": 30,
+      "durationFormatted": "30s"
+    },
+    "performance": {
+      "totalRep": 27,
+      "validRep": 27,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 63.6,
+      "caloriesBurnedKcal": 12.2
+    },
+    "evaluation": {
+      "rating": "Kỹ thuật xuất sắc",
+      "feedback": "Kỹ thuật tuyệt vời! Biên độ chuyển động hoàn hảo, nhịp độ và tư thế đạt chuẩn cao."
+    },
+    "rep": 27,
+    "validRep": 27,
+    "invalidRep": 0,
+    "cadence": 63.6,
+    "accuracy": 100,
     "deviceId": "ESP32_01",
     "username": "ntp113",
     "fullName": "Nguyen Tan Phat",
     "startTime": "2026-10-23T17:49:28.384Z",
     "endTime": "2026-10-23T17:49:58.775Z",
-    "rep": 27,
-    "validRep": 27,
-    "invalidRep": 0,
-    "cadence": 63.6
+    "duration": "30s",
+    "calories": 12.2,
+    "rating": "Kỹ thuật xuất sắc"
   },
   {
     "id": 1792778282494,
+    "sessionCode": "PUSHUP-20261024-2494",
+    "athlete": {
+      "username": "ntp113",
+      "fullName": "Nguyen Tan Phat"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-23T17:58:02.494Z",
+      "endTime": "2026-10-23T17:58:05.261Z",
+      "startTimeFormatted": "2026-10-24 00:58:02",
+      "endTimeFormatted": "2026-10-24 00:58:05",
+      "durationSeconds": 3,
+      "durationFormatted": "3s"
+    },
+    "performance": {
+      "totalRep": 0,
+      "validRep": 0,
+      "invalidRep": 0,
+      "accuracyPercent": 0,
+      "cadenceRpm": 0,
+      "caloriesBurnedKcal": 0
+    },
+    "evaluation": {
+      "rating": "Chưa hoàn thành",
+      "feedback": "Cần cải thiện độ sâu khi hạ ngực để ghi nhận rep chuẩn."
+    },
+    "rep": 0,
+    "validRep": 0,
+    "invalidRep": 0,
+    "cadence": 0,
+    "accuracy": 0,
     "deviceId": "ESP32_01",
     "username": "ntp113",
     "fullName": "Nguyen Tan Phat",
     "startTime": "2026-10-23T17:58:02.494Z",
     "endTime": "2026-10-23T17:58:05.261Z",
-    "rep": 0,
-    "validRep": 0,
-    "invalidRep": 0,
-    "cadence": 0
+    "duration": "3s",
+    "calories": 0,
+    "rating": "Chưa hoàn thành"
   },
   {
     "id": 1792778525229,
+    "sessionCode": "PUSHUP-20261024-5229",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-23T18:02:05.229Z",
+      "endTime": "2026-10-23T18:03:18.922Z",
+      "startTimeFormatted": "2026-10-24 01:02:05",
+      "endTimeFormatted": "2026-10-24 01:03:18",
+      "durationSeconds": 74,
+      "durationFormatted": "1p 14s"
+    },
+    "performance": {
+      "totalRep": 50,
+      "validRep": 49,
+      "invalidRep": 1,
+      "accuracyPercent": 98,
+      "cadenceRpm": 38.1,
+      "caloriesBurnedKcal": 22.1
+    },
+    "evaluation": {
+      "rating": "Kỹ thuật xuất sắc",
+      "feedback": "Kỹ thuật tuyệt vời! Biên độ chuyển động hoàn hảo, nhịp độ và tư thế đạt chuẩn cao."
+    },
+    "rep": 50,
+    "validRep": 49,
+    "invalidRep": 1,
+    "cadence": 38.1,
+    "accuracy": 98,
     "deviceId": "ESP32_01",
     "username": "user",
     "fullName": "Học Viên Tập Luyện",
     "startTime": "2026-10-23T18:02:05.229Z",
     "endTime": "2026-10-23T18:03:18.922Z",
-    "rep": 50,
-    "validRep": 49,
+    "duration": "1p 14s",
+    "calories": 22.1,
+    "rating": "Kỹ thuật xuất sắc"
+  },
+  {
+    "id": 1792946360383,
+    "sessionCode": "PUSHUP-20261025-0383",
+    "athlete": {
+      "username": "ntp113",
+      "fullName": "Nguyen Tan Phat"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-25T16:39:20.383Z",
+      "endTime": "2026-10-25T16:41:38.964Z",
+      "startTimeFormatted": "2026-10-25 23:39:20",
+      "endTimeFormatted": "2026-10-25 23:41:38",
+      "durationSeconds": 139,
+      "durationFormatted": "2p 19s"
+    },
+    "performance": {
+      "totalRep": 0,
+      "validRep": 0,
+      "invalidRep": 0,
+      "accuracyPercent": 0,
+      "cadenceRpm": 0,
+      "caloriesBurnedKcal": 0
+    },
+    "evaluation": {
+      "rating": "Chưa hoàn thành",
+      "feedback": "Cần cải thiện độ sâu khi hạ ngực để ghi nhận rep chuẩn."
+    },
+    "rep": 0,
+    "validRep": 0,
+    "invalidRep": 0,
+    "cadence": 0,
+    "accuracy": 0,
+    "deviceId": "ESP32_01",
+    "username": "ntp113",
+    "fullName": "Nguyen Tan Phat",
+    "startTime": "2026-10-25T16:39:20.383Z",
+    "endTime": "2026-10-25T16:41:38.964Z",
+    "duration": "2p 19s",
+    "calories": 0,
+    "rating": "Chưa hoàn thành"
+  },
+  {
+    "id": 1792985365897,
+    "sessionCode": "PUSHUP-20261026-5897",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-26T03:29:25.897Z",
+      "endTime": "2026-10-26T03:29:30.622Z",
+      "startTimeFormatted": "2026-10-26 10:29:25",
+      "endTimeFormatted": "2026-10-26 10:29:30",
+      "durationSeconds": 5,
+      "durationFormatted": "5s"
+    },
+    "performance": {
+      "totalRep": 0,
+      "validRep": 0,
+      "invalidRep": 0,
+      "accuracyPercent": 0,
+      "cadenceRpm": 0,
+      "caloriesBurnedKcal": 0
+    },
+    "evaluation": {
+      "rating": "Chưa hoàn thành",
+      "feedback": "Cần cải thiện độ sâu khi hạ ngực để ghi nhận rep chuẩn."
+    },
+    "rep": 0,
+    "validRep": 0,
+    "invalidRep": 0,
+    "cadence": 0,
+    "accuracy": 0,
+    "deviceId": "ESP32_01",
+    "username": "user",
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-26T03:29:25.897Z",
+    "endTime": "2026-10-26T03:29:30.622Z",
+    "duration": "5s",
+    "calories": 0,
+    "rating": "Chưa hoàn thành"
+  },
+  {
+    "id": 1792989032981,
+    "sessionCode": "PUSHUP-20261026-2981",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-26T04:30:32.981Z",
+      "endTime": "2026-10-26T04:31:02.267Z",
+      "startTimeFormatted": "2026-10-26 11:30:32",
+      "endTimeFormatted": "2026-10-26 11:31:02",
+      "durationSeconds": 29,
+      "durationFormatted": "29s"
+    },
+    "performance": {
+      "totalRep": 20,
+      "validRep": 20,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 41.8,
+      "caloriesBurnedKcal": 9
+    },
+    "evaluation": {
+      "rating": "Kỹ thuật xuất sắc",
+      "feedback": "Kỹ thuật tuyệt vời! Biên độ chuyển động hoàn hảo, nhịp độ và tư thế đạt chuẩn cao."
+    },
+    "rep": 20,
+    "validRep": 20,
+    "invalidRep": 0,
+    "cadence": 41.8,
+    "accuracy": 100,
+    "deviceId": "ESP32_01",
+    "username": "user",
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-26T04:30:32.981Z",
+    "endTime": "2026-10-26T04:31:02.267Z",
+    "duration": "29s",
+    "calories": 9,
+    "rating": "Kỹ thuật xuất sắc"
+  },
+  {
+    "id": 1792993882022,
+    "sessionCode": "PUSHUP-20261026-2022",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_01",
+      "deviceName": "ESP32 Thật (Cảm biến HC-SR04)",
+      "deviceType": "Mạch Thật (Hardware)"
+    },
+    "time": {
+      "startTime": "2026-10-26T05:51:22.022Z",
+      "endTime": "2026-10-26T05:51:32.823Z",
+      "startTimeFormatted": "2026-10-26 12:51:22",
+      "endTimeFormatted": "2026-10-26 12:51:32",
+      "durationSeconds": 11,
+      "durationFormatted": "11s"
+    },
+    "performance": {
+      "totalRep": 5,
+      "validRep": 4,
+      "invalidRep": 1,
+      "accuracyPercent": 80,
+      "cadenceRpm": 27.1,
+      "caloriesBurnedKcal": 1.8
+    },
+    "evaluation": {
+      "rating": "Đạt yêu cầu",
+      "feedback": "Đạt yêu cầu thể lực. Chú ý hạ ngực sát cảm biến hơn để tăng số rep chuẩn."
+    },
+    "rep": 5,
+    "validRep": 4,
     "invalidRep": 1,
-    "cadence": 38.1
+    "cadence": 27.1,
+    "accuracy": 80,
+    "deviceId": "ESP32_01",
+    "username": "user",
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-26T05:51:22.022Z",
+    "endTime": "2026-10-26T05:51:32.823Z",
+    "duration": "11s",
+    "calories": 1.8,
+    "rating": "Đạt yêu cầu"
+  },
+  {
+    "id": 1792995495855,
+    "sessionCode": "PUSHUP-20261026-5855",
+    "athlete": {
+      "username": "user",
+      "fullName": "Học Viên Tập Luyện"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-26T06:18:15.855Z",
+      "endTime": "2026-10-26T06:18:35.226Z",
+      "startTimeFormatted": "2026-10-26 13:18:15",
+      "endTimeFormatted": "2026-10-26 13:18:35",
+      "durationSeconds": 19,
+      "durationFormatted": "19s"
+    },
+    "performance": {
+      "totalRep": 1,
+      "validRep": 1,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 23.3,
+      "caloriesBurnedKcal": 0.5
+    },
+    "evaluation": {
+      "rating": "Đạt yêu cầu",
+      "feedback": "Đạt yêu cầu thể lực. Chú ý hạ ngực sát cảm biến hơn để tăng số rep chuẩn."
+    },
+    "rep": 1,
+    "validRep": 1,
+    "invalidRep": 0,
+    "cadence": 23.3,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
+    "username": "user",
+    "fullName": "Học Viên Tập Luyện",
+    "startTime": "2026-10-26T06:18:15.855Z",
+    "endTime": "2026-10-26T06:18:35.226Z",
+    "duration": "19s",
+    "calories": 0.5,
+    "rating": "Đạt yêu cầu"
+  },
+  {
+    "id": 1792995529123,
+    "sessionCode": "PUSHUP-20261026-9123",
+    "athlete": {
+      "username": "admin",
+      "fullName": "Quan Tri Vien (Admin)"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-26T06:18:49.123Z",
+      "endTime": "2026-10-26T06:19:05.203Z",
+      "startTimeFormatted": "2026-10-26 13:18:49",
+      "endTimeFormatted": "2026-10-26 13:19:05",
+      "durationSeconds": 16,
+      "durationFormatted": "16s"
+    },
+    "performance": {
+      "totalRep": 1,
+      "validRep": 1,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 30,
+      "caloriesBurnedKcal": 0.5
+    },
+    "evaluation": {
+      "rating": "Đạt yêu cầu",
+      "feedback": "Đạt yêu cầu thể lực. Chú ý hạ ngực sát cảm biến hơn để tăng số rep chuẩn."
+    },
+    "rep": 1,
+    "validRep": 1,
+    "invalidRep": 0,
+    "cadence": 30,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
+    "username": "admin",
+    "fullName": "Quan Tri Vien (Admin)",
+    "startTime": "2026-10-26T06:18:49.123Z",
+    "endTime": "2026-10-26T06:19:05.203Z",
+    "duration": "16s",
+    "calories": 0.5,
+    "rating": "Đạt yêu cầu"
+  },
+  {
+    "id": 1792996522810,
+    "sessionCode": "PUSHUP-20261026-2810",
+    "athlete": {
+      "username": "user",
+      "fullName": "Wokwi"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-26T06:35:22.810Z",
+      "endTime": "2026-10-26T06:35:28.298Z",
+      "startTimeFormatted": "2026-10-26 13:35:22",
+      "endTimeFormatted": "2026-10-26 13:35:28",
+      "durationSeconds": 5,
+      "durationFormatted": "5s"
+    },
+    "performance": {
+      "totalRep": 0,
+      "validRep": 0,
+      "invalidRep": 0,
+      "accuracyPercent": 0,
+      "cadenceRpm": 0,
+      "caloriesBurnedKcal": 0
+    },
+    "evaluation": {
+      "rating": "Chưa hoàn thành",
+      "feedback": "Cần cải thiện độ sâu khi hạ ngực để ghi nhận rep chuẩn."
+    },
+    "rep": 0,
+    "validRep": 0,
+    "invalidRep": 0,
+    "cadence": 0,
+    "accuracy": 0,
+    "deviceId": "ESP32_02",
+    "username": "user",
+    "fullName": "Wokwi",
+    "startTime": "2026-10-26T06:35:22.810Z",
+    "endTime": "2026-10-26T06:35:28.298Z",
+    "duration": "5s",
+    "calories": 0,
+    "rating": "Chưa hoàn thành"
+  },
+  {
+    "id": 1792996539546,
+    "sessionCode": "PUSHUP-20261026-9546",
+    "athlete": {
+      "username": "admin",
+      "fullName": "Quan Tri Vien (Admin)"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-26T06:35:39.546Z",
+      "endTime": "2026-10-26T06:36:01.234Z",
+      "startTimeFormatted": "2026-10-26 13:35:39",
+      "endTimeFormatted": "2026-10-26 13:36:01",
+      "durationSeconds": 22,
+      "durationFormatted": "22s"
+    },
+    "performance": {
+      "totalRep": 10,
+      "validRep": 10,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 43.4,
+      "caloriesBurnedKcal": 4.5
+    },
+    "evaluation": {
+      "rating": "Tốt",
+      "feedback": "Động tác rất tốt! Kiểm soát cơ thể ổn định trong suốt buổi tập."
+    },
+    "rep": 10,
+    "validRep": 10,
+    "invalidRep": 0,
+    "cadence": 43.4,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
+    "username": "admin",
+    "fullName": "Quan Tri Vien (Admin)",
+    "startTime": "2026-10-26T06:35:39.546Z",
+    "endTime": "2026-10-26T06:36:01.234Z",
+    "duration": "22s",
+    "calories": 4.5,
+    "rating": "Tốt"
+  },
+  {
+    "id": 1792998506079,
+    "sessionCode": "PUSHUP-20261026-6079",
+    "athlete": {
+      "username": "admin",
+      "fullName": "Quản Trị Viên (Admin)"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-26T07:08:26.079Z",
+      "endTime": "2026-10-26T07:08:40.161Z",
+      "startTimeFormatted": "2026-10-26 14:08:26",
+      "endTimeFormatted": "2026-10-26 14:08:40",
+      "durationSeconds": 14,
+      "durationFormatted": "14s"
+    },
+    "performance": {
+      "totalRep": 9,
+      "validRep": 9,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 24.5,
+      "caloriesBurnedKcal": 4
+    },
+    "evaluation": {
+      "rating": "Tốt",
+      "feedback": "Động tác rất tốt! Kiểm soát cơ thể ổn định trong suốt buổi tập."
+    },
+    "rep": 9,
+    "validRep": 9,
+    "invalidRep": 0,
+    "cadence": 24.5,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
+    "username": "admin",
+    "fullName": "Quản Trị Viên (Admin)",
+    "startTime": "2026-10-26T07:08:26.079Z",
+    "endTime": "2026-10-26T07:08:40.161Z",
+    "duration": "14s",
+    "calories": 4,
+    "rating": "Tốt"
+  },
+  {
+    "id": 1792998592697,
+    "sessionCode": "PUSHUP-20261026-2697",
+    "athlete": {
+      "username": "admin",
+      "fullName": "Quản Trị Viên (Admin)"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-26T07:09:52.697Z",
+      "endTime": "2026-10-26T07:10:08.003Z",
+      "startTimeFormatted": "2026-10-26 14:09:52",
+      "endTimeFormatted": "2026-10-26 14:10:08",
+      "durationSeconds": 15,
+      "durationFormatted": "15s"
+    },
+    "performance": {
+      "totalRep": 16,
+      "validRep": 16,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 52.4,
+      "caloriesBurnedKcal": 7.2
+    },
+    "evaluation": {
+      "rating": "Kỹ thuật xuất sắc",
+      "feedback": "Kỹ thuật tuyệt vời! Biên độ chuyển động hoàn hảo, nhịp độ và tư thế đạt chuẩn cao."
+    },
+    "rep": 16,
+    "validRep": 16,
+    "invalidRep": 0,
+    "cadence": 52.4,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
+    "username": "admin",
+    "fullName": "Quản Trị Viên (Admin)",
+    "startTime": "2026-10-26T07:09:52.697Z",
+    "endTime": "2026-10-26T07:10:08.003Z",
+    "duration": "15s",
+    "calories": 7.2,
+    "rating": "Kỹ thuật xuất sắc"
+  },
+  {
+    "id": 1793062134617,
+    "sessionCode": "PUSHUP-20261027-4617",
+    "athlete": {
+      "username": "admin",
+      "fullName": "Quản Trị Viên (Admin)"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-27T00:48:54.617Z",
+      "endTime": "2026-10-27T00:49:24.433Z",
+      "startTimeFormatted": "2026-10-27 07:48:54",
+      "endTimeFormatted": "2026-10-27 07:49:24",
+      "durationSeconds": 30,
+      "durationFormatted": "30s"
+    },
+    "performance": {
+      "totalRep": 19,
+      "validRep": 19,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 22.4,
+      "caloriesBurnedKcal": 8.6
+    },
+    "evaluation": {
+      "rating": "Kỹ thuật xuất sắc",
+      "feedback": "Kỹ thuật tuyệt vời! Biên độ chuyển động hoàn hảo, nhịp độ và tư thế đạt chuẩn cao."
+    },
+    "rep": 19,
+    "validRep": 19,
+    "invalidRep": 0,
+    "cadence": 22.4,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
+    "username": "admin",
+    "fullName": "Quản Trị Viên (Admin)",
+    "startTime": "2026-10-27T00:48:54.617Z",
+    "endTime": "2026-10-27T00:49:24.433Z",
+    "duration": "30s",
+    "calories": 8.6,
+    "rating": "Kỹ thuật xuất sắc"
+  },
+  {
+    "id": 1793063546812,
+    "sessionCode": "PUSHUP-20261027-6812",
+    "athlete": {
+      "username": "admin",
+      "fullName": "Quan Tri Vien (Admin)"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-27T01:12:26.812Z",
+      "endTime": "2026-10-27T01:12:32.250Z",
+      "startTimeFormatted": "2026-10-27 08:12:26",
+      "endTimeFormatted": "2026-10-27 08:12:32",
+      "durationSeconds": 5,
+      "durationFormatted": "5s"
+    },
+    "performance": {
+      "totalRep": 6,
+      "validRep": 6,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 115.8,
+      "caloriesBurnedKcal": 2.7
+    },
+    "evaluation": {
+      "rating": "Đạt yêu cầu",
+      "feedback": "Đạt yêu cầu thể lực. Chú ý hạ ngực sát cảm biến hơn để tăng số rep chuẩn."
+    },
+    "rep": 6,
+    "validRep": 6,
+    "invalidRep": 0,
+    "cadence": 115.8,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
+    "username": "admin",
+    "fullName": "Quan Tri Vien (Admin)",
+    "startTime": "2026-10-27T01:12:26.812Z",
+    "endTime": "2026-10-27T01:12:32.250Z",
+    "duration": "5s",
+    "calories": 2.7,
+    "rating": "Đạt yêu cầu"
+  },
+  {
+    "id": 1793064513772,
+    "sessionCode": "PUSHUP-20261027-3772",
+    "athlete": {
+      "username": "user",
+      "fullName": "Hoc Vien Tap Luyen"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-27T01:28:33.772Z",
+      "endTime": "2026-10-27T01:28:45.531Z",
+      "startTimeFormatted": "2026-10-27 08:28:33",
+      "endTimeFormatted": "2026-10-27 08:28:45",
+      "durationSeconds": 12,
+      "durationFormatted": "12s"
+    },
+    "performance": {
+      "totalRep": 0,
+      "validRep": 0,
+      "invalidRep": 0,
+      "accuracyPercent": 0,
+      "cadenceRpm": 0,
+      "caloriesBurnedKcal": 0
+    },
+    "evaluation": {
+      "rating": "Chưa hoàn thành",
+      "feedback": "Cần cải thiện độ sâu khi hạ ngực để ghi nhận rep chuẩn."
+    },
+    "rep": 0,
+    "validRep": 0,
+    "invalidRep": 0,
+    "cadence": 0,
+    "accuracy": 0,
+    "deviceId": "ESP32_02",
+    "username": "user",
+    "fullName": "Hoc Vien Tap Luyen",
+    "startTime": "2026-10-27T01:28:33.772Z",
+    "endTime": "2026-10-27T01:28:45.531Z",
+    "duration": "12s",
+    "calories": 0,
+    "rating": "Chưa hoàn thành"
+  },
+  {
+    "id": 1793064550723,
+    "sessionCode": "PUSHUP-20261027-0723",
+    "athlete": {
+      "username": "user",
+      "fullName": "Hoc Vien Tap Luyen"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-27T01:29:10.723Z",
+      "endTime": "2026-10-27T01:30:04.126Z",
+      "startTimeFormatted": "2026-10-27 08:29:10",
+      "endTimeFormatted": "2026-10-27 08:30:04",
+      "durationSeconds": 53,
+      "durationFormatted": "53s"
+    },
+    "performance": {
+      "totalRep": 20,
+      "validRep": 20,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 16.8,
+      "caloriesBurnedKcal": 9
+    },
+    "evaluation": {
+      "rating": "Kỹ thuật xuất sắc",
+      "feedback": "Kỹ thuật tuyệt vời! Biên độ chuyển động hoàn hảo, nhịp độ và tư thế đạt chuẩn cao."
+    },
+    "rep": 20,
+    "validRep": 20,
+    "invalidRep": 0,
+    "cadence": 16.8,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
+    "username": "user",
+    "fullName": "Hoc Vien Tap Luyen",
+    "startTime": "2026-10-27T01:29:10.723Z",
+    "endTime": "2026-10-27T01:30:04.126Z",
+    "duration": "53s",
+    "calories": 9,
+    "rating": "Kỹ thuật xuất sắc"
+  },
+  {
+    "id": 1793064609167,
+    "sessionCode": "PUSHUP-20261027-9167",
+    "athlete": {
+      "username": "user",
+      "fullName": "Hoc Vien Tap Luyen"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-27T01:30:09.167Z",
+      "endTime": "2026-10-27T01:30:12.769Z",
+      "startTimeFormatted": "2026-10-27 08:30:09",
+      "endTimeFormatted": "2026-10-27 08:30:12",
+      "durationSeconds": 4,
+      "durationFormatted": "4s"
+    },
+    "performance": {
+      "totalRep": 0,
+      "validRep": 0,
+      "invalidRep": 0,
+      "accuracyPercent": 0,
+      "cadenceRpm": 0,
+      "caloriesBurnedKcal": 0
+    },
+    "evaluation": {
+      "rating": "Chưa hoàn thành",
+      "feedback": "Cần cải thiện độ sâu khi hạ ngực để ghi nhận rep chuẩn."
+    },
+    "rep": 0,
+    "validRep": 0,
+    "invalidRep": 0,
+    "cadence": 0,
+    "accuracy": 0,
+    "deviceId": "ESP32_02",
+    "username": "user",
+    "fullName": "Hoc Vien Tap Luyen",
+    "startTime": "2026-10-27T01:30:09.167Z",
+    "endTime": "2026-10-27T01:30:12.769Z",
+    "duration": "4s",
+    "calories": 0,
+    "rating": "Chưa hoàn thành"
+  },
+  {
+    "id": 1793065022306,
+    "sessionCode": "PUSHUP-20261027-2306",
+    "athlete": {
+      "username": "thien123",
+      "fullName": "Nguyễn Phạm Hữu Thiện"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-27T01:37:02.306Z",
+      "endTime": "2026-10-27T01:37:24.210Z",
+      "startTimeFormatted": "2026-10-27 08:37:02",
+      "endTimeFormatted": "2026-10-27 08:37:24",
+      "durationSeconds": 22,
+      "durationFormatted": "22s"
+    },
+    "performance": {
+      "totalRep": 0,
+      "validRep": 0,
+      "invalidRep": 0,
+      "accuracyPercent": 0,
+      "cadenceRpm": 0,
+      "caloriesBurnedKcal": 0
+    },
+    "evaluation": {
+      "rating": "Chưa hoàn thành",
+      "feedback": "Cần cải thiện độ sâu khi hạ ngực để ghi nhận rep chuẩn."
+    },
+    "rep": 0,
+    "validRep": 0,
+    "invalidRep": 0,
+    "cadence": 0,
+    "accuracy": 0,
+    "deviceId": "ESP32_02",
+    "username": "thien123",
+    "fullName": "Nguyễn Phạm Hữu Thiện",
+    "startTime": "2026-10-27T01:37:02.306Z",
+    "endTime": "2026-10-27T01:37:24.210Z",
+    "duration": "22s",
+    "calories": 0,
+    "rating": "Chưa hoàn thành"
+  },
+  {
+    "id": 1793065056673,
+    "sessionCode": "PUSHUP-20261027-6673",
+    "athlete": {
+      "username": "user",
+      "fullName": "Hoc Vien Tap Luyen"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-27T01:37:36.673Z",
+      "endTime": "2026-10-27T01:37:49.970Z",
+      "startTimeFormatted": "2026-10-27 08:37:36",
+      "endTimeFormatted": "2026-10-27 08:37:49",
+      "durationSeconds": 13,
+      "durationFormatted": "13s"
+    },
+    "performance": {
+      "totalRep": 5,
+      "validRep": 5,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 45,
+      "caloriesBurnedKcal": 2.3
+    },
+    "evaluation": {
+      "rating": "Đạt yêu cầu",
+      "feedback": "Đạt yêu cầu thể lực. Chú ý hạ ngực sát cảm biến hơn để tăng số rep chuẩn."
+    },
+    "rep": 5,
+    "validRep": 5,
+    "invalidRep": 0,
+    "cadence": 45,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
+    "username": "user",
+    "fullName": "Hoc Vien Tap Luyen",
+    "startTime": "2026-10-27T01:37:36.673Z",
+    "endTime": "2026-10-27T01:37:49.970Z",
+    "duration": "13s",
+    "calories": 2.3,
+    "rating": "Đạt yêu cầu"
+  },
+  {
+    "id": 1793065071438,
+    "sessionCode": "PUSHUP-20261027-1438",
+    "athlete": {
+      "username": "user",
+      "fullName": "Mạch Ảo Wokwi"
+    },
+    "device": {
+      "deviceId": "ESP32_02",
+      "deviceName": "ESP32 Ảo (Wokwi Simulator)",
+      "deviceType": "Mạch Ảo (Virtual)"
+    },
+    "time": {
+      "startTime": "2026-10-27T01:37:51.438Z",
+      "endTime": "2026-10-27T01:37:57.435Z",
+      "startTimeFormatted": "2026-10-27 08:37:51",
+      "endTimeFormatted": "2026-10-27 08:37:57",
+      "durationSeconds": 6,
+      "durationFormatted": "6s"
+    },
+    "performance": {
+      "totalRep": 5,
+      "validRep": 5,
+      "invalidRep": 0,
+      "accuracyPercent": 100,
+      "cadenceRpm": 45,
+      "caloriesBurnedKcal": 2.3
+    },
+    "evaluation": {
+      "rating": "Đạt yêu cầu",
+      "feedback": "Đạt yêu cầu thể lực. Chú ý hạ ngực sát cảm biến hơn để tăng số rep chuẩn."
+    },
+    "rep": 5,
+    "validRep": 5,
+    "invalidRep": 0,
+    "cadence": 45,
+    "accuracy": 100,
+    "deviceId": "ESP32_02",
+    "username": "user",
+    "fullName": "Mạch Ảo Wokwi",
+    "startTime": "2026-10-27T01:37:51.438Z",
+    "endTime": "2026-10-27T01:37:57.435Z",
+    "duration": "6s",
+    "calories": 2.3,
+    "rating": "Đạt yêu cầu"
   }
 ]
