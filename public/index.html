@@ -1807,6 +1807,8 @@
     // ======================================================
     let currentRole = "user";            // 'admin' hoặc 'user'
     let currentDeviceId = "device01";    // 'device01' (Thật) hoặc 'device02' (Ảo)
+    let currentUser = null;
+    let targetCalorieGoal = parseFloat(localStorage.getItem("pushup_calorie_goal")) || 50;
 
     let TOPIC_LIVE = "pushup_ntp113/device01/live";
     let TOPIC_COMMAND = "pushup_ntp113/device01/command";
@@ -1928,7 +1930,7 @@
     // ======================================================
     // AUTH TABS, DANG KY & DANG NHAP (LOCAL + API REST)
     // ======================================================
-    let currentUser = null;
+    // currentUser declared at top
 
     function switchAuthTab(tab) {
       console.log(">>> [AUTH TAB] Chuyen sang tab:", tab);
@@ -2372,7 +2374,7 @@
     // ======================================================
     // QUẢN LÝ MỤC TIÊU TIÊU HAO CALORIES (TÙY CHỈNH THEO NGƯỜI DÙNG)
     // ======================================================
-    let targetCalorieGoal = parseFloat(localStorage.getItem("pushup_calorie_goal")) || 50;
+    targetCalorieGoal = parseFloat(localStorage.getItem("pushup_calorie_goal")) || 50;
 
     function updateCalorieGoal(newGoal) {
       const g = parseFloat(newGoal);
